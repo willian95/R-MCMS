@@ -148,10 +148,10 @@ License: You must have a valid license purchased only from themeforest(the above
 							<!--begin::Menu Nav-->
 							<ul class="menu-nav">
 
-								<li class="menu-item menu-item-submenu @if(strpos(url()->current(), 'blogs') > -1) menu-item-active @endif" aria-haspopup="true" data-menu-toggle="hover">
+								<li class="menu-item menu-item-submenu @if(strpos(url()->current(), 'banners') > -1) menu-item-active @endif" aria-haspopup="true" data-menu-toggle="hover">
 									<a href="javascript:;" class="menu-link menu-toggle">
-										<i class="menu-icon fas fa-book"></i>
-										<span class="menu-text">Blog</span>
+										<i class="menu-icon far fa-file-image"></i>
+										<span class="menu-text">Banners</span>
 										<i class="menu-arrow"></i>
 									</a>
 									<div class="menu-submenu">
@@ -163,7 +163,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												</span>
 											</li>
 											<li class="menu-item" aria-haspopup="true">
-												<a href="{{ route('blogs.create') }}" class="menu-link">
+												<a href="{{ route('banners.create') }}" class="menu-link">
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
 													</i>
@@ -171,7 +171,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												</a>
 											</li>
 											<li class="menu-item" aria-haspopup="true">
-												<a href="{{ route('blogs.list') }}" class="menu-link">
+												<a href="{{ route('banners.list') }}" class="menu-link">
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
 													</i>
@@ -182,44 +182,38 @@ License: You must have a valid license purchased only from themeforest(the above
 									</div>
 								</li>
 
-								<li class="menu-item menu-item-submenu @if(strpos(url()->current(), 'categories') > -1) menu-item-active @endif" aria-haspopup="true" data-menu-toggle="hover">
-									<a href="javascript:;" class="menu-link menu-toggle">
-										<i class="menu-icon fas fa-border-all"></i>
-										<span class="menu-text">Categorías</span>
-										<i class="menu-arrow"></i>
+								<li class="menu-item @if(strpos(url()->current(), 'service-images') > -1) menu-item-active @endif" aria-haspopup="true">
+									<a href="{{ route('service-images.index') }}" class="menu-link">
+										<i class="menu-icon far fa-file-image"></i>
+										<span class="menu-text">Imágenes de servicios</span>
 									</a>
-									<div class="menu-submenu">
-										<i class="menu-arrow"></i>
-										<ul class="menu-subnav">
-											<li class="menu-item menu-item-parent" aria-haspopup="true">
-												<span class="menu-link">
-													<span class="menu-text">Actions</span>
-												</span>
-											</li>
-											<li class="menu-item" aria-haspopup="true">
-												<a href="{{ route('categories.create') }}" class="menu-link">
-													<i class="menu-bullet menu-bullet-line">
-														<span></span>
-													</i>
-													<span class="menu-text">Crear</span>
-												</a>
-											</li>
-											<li class="menu-item" aria-haspopup="true">
-												<a href="{{ route('categories.list') }}" class="menu-link">
-													<i class="menu-bullet menu-bullet-line">
-														<span></span>
-													</i>
-													<span class="menu-text">Listado</span>
-												</a>
-											</li>
-										</ul>
-									</div>
 								</li>
 
-								<li class="menu-item menu-item-submenu @if(strpos(url()->current(), 'staffs') > -1) menu-item-active @endif" aria-haspopup="true" data-menu-toggle="hover">
+								<li class="menu-item @if(strpos(url()->current(), 'orders') > -1) menu-item-active @endif" aria-haspopup="true">
+									<a href="{{ route('orders.index') }}" class="menu-link">
+										<i class="menu-icon far fa-money-bill-alt"></i>
+										<span class="menu-text">Ventas</span>
+									</a>
+								</li>
+
+								<li class="menu-item @if(strpos(url()->current(), 'coupons') > -1) menu-item-active @endif" aria-haspopup="true">
+									<a href="{{ route('coupons.index') }}" class="menu-link">
+										<i class="menu-icon fas fa-ticket-alt"></i>
+										<span class="menu-text">Cupones</span>
+									</a>
+								</li>
+
+								<li class="menu-item @if(strpos(url()->current(), 'clients') > -1) menu-item-active @endif" aria-haspopup="true">
+									<a href="{{ route('clients.index') }}" class="menu-link">
+										<i class="menu-icon fas fa-users"></i>
+										<span class="menu-text">Clientes</span>
+									</a>
+								</li>
+
+								<li class="menu-item menu-item-submenu @if(strpos(url()->current(), 'products') > -1) menu-item-active @endif" aria-haspopup="true" data-menu-toggle="hover">
 									<a href="javascript:;" class="menu-link menu-toggle">
-										<i class="menu-icon fas fa-user-tie"></i>
-										<span class="menu-text">Personal</span>
+										<i class="menu-icon fas fa-box-open"></i>
+										<span class="menu-text">Productos</span>
 										<i class="menu-arrow"></i>
 									</a>
 									<div class="menu-submenu">
@@ -231,7 +225,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												</span>
 											</li>
 											<li class="menu-item" aria-haspopup="true">
-												<a href="{{ route('staffs.create') }}" class="menu-link">
+												<a href="{{ route('products.create') }}" class="menu-link">
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
 													</i>
@@ -239,7 +233,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												</a>
 											</li>
 											<li class="menu-item" aria-haspopup="true">
-												<a href="{{ route('staffs.list') }}" class="menu-link">
+												<a href="{{ route('products.list') }}" class="menu-link">
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
 													</i>
@@ -284,10 +278,10 @@ License: You must have a valid license purchased only from themeforest(the above
 									</div>
 								</li>
 
-								<li class="menu-item menu-item-submenu @if(strpos(url()->current(), 'banners') > -1) menu-item-active @endif" aria-haspopup="true" data-menu-toggle="hover">
+								<li class="menu-item menu-item-submenu @if(strpos(url()->current(), 'categories') > -1) menu-item-active @endif" aria-haspopup="true" data-menu-toggle="hover">
 									<a href="javascript:;" class="menu-link menu-toggle">
-										<i class="menu-icon far fa-file-image"></i>
-										<span class="menu-text">Banners</span>
+										<i class="menu-icon fas fa-border-all"></i>
+										<span class="menu-text">Categorías</span>
 										<i class="menu-arrow"></i>
 									</a>
 									<div class="menu-submenu">
@@ -299,7 +293,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												</span>
 											</li>
 											<li class="menu-item" aria-haspopup="true">
-												<a href="{{ route('banners.create') }}" class="menu-link">
+												<a href="{{ route('categories.create') }}" class="menu-link">
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
 													</i>
@@ -307,41 +301,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												</a>
 											</li>
 											<li class="menu-item" aria-haspopup="true">
-												<a href="{{ route('banners.list') }}" class="menu-link">
-													<i class="menu-bullet menu-bullet-line">
-														<span></span>
-													</i>
-													<span class="menu-text">Listado</span>
-												</a>
-											</li>
-										</ul>
-									</div>
-								</li>
-
-								<li class="menu-item menu-item-submenu @if(strpos(url()->current(), 'products') > -1) menu-item-active @endif" aria-haspopup="true" data-menu-toggle="hover">
-									<a href="javascript:;" class="menu-link menu-toggle">
-										<i class="menu-icon fas fa-box-open"></i>
-										<span class="menu-text">Productos</span>
-										<i class="menu-arrow"></i>
-									</a>
-									<div class="menu-submenu">
-										<i class="menu-arrow"></i>
-										<ul class="menu-subnav">
-											<li class="menu-item menu-item-parent" aria-haspopup="true">
-												<span class="menu-link">
-													<span class="menu-text">Actions</span>
-												</span>
-											</li>
-											<li class="menu-item" aria-haspopup="true">
-												<a href="{{ route('products.create') }}" class="menu-link">
-													<i class="menu-bullet menu-bullet-line">
-														<span></span>
-													</i>
-													<span class="menu-text">Crear</span>
-												</a>
-											</li>
-											<li class="menu-item" aria-haspopup="true">
-												<a href="{{ route('products.list') }}" class="menu-link">
+												<a href="{{ route('categories.list') }}" class="menu-link">
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
 													</i>
@@ -359,40 +319,99 @@ License: You must have a valid license purchased only from themeforest(the above
 									</a>
 								</li>
 
-								<li class="menu-item @if(strpos(url()->current(), 'clients') > -1) menu-item-active @endif" aria-haspopup="true">
-									<a href="{{ route('clients.index') }}" class="menu-link">
-										<i class="menu-icon fas fa-users"></i>
-										<span class="menu-text">Clientes</span>
-									</a>
-								</li>
-
-								<li class="menu-item @if(strpos(url()->current(), 'orders') > -1) menu-item-active @endif" aria-haspopup="true">
-									<a href="{{ route('orders.index') }}" class="menu-link">
-										<i class="menu-icon far fa-money-bill-alt"></i>
-										<span class="menu-text">Ventas</span>
-									</a>
-								</li>
-
-								<li class="menu-item @if(strpos(url()->current(), 'coupons') > -1) menu-item-active @endif" aria-haspopup="true">
-									<a href="{{ route('coupons.index') }}" class="menu-link">
-										<i class="menu-icon fas fa-ticket-alt"></i>
-										<span class="menu-text">Cupones</span>
-									</a>
-								</li>
-
-								<li class="menu-item @if(strpos(url()->current(), 'service-images') > -1) menu-item-active @endif" aria-haspopup="true">
-									<a href="{{ route('service-images.index') }}" class="menu-link">
-										<i class="menu-icon far fa-file-image"></i>
-										<span class="menu-text">Imágenes de servicios</span>
-									</a>
-								</li>
-
 								<li class="menu-item @if(strpos(url()->current(), 'colors') > -1) menu-item-active @endif" aria-haspopup="true">
 									<a href="{{ route('colors.index') }}" class="menu-link">
 										<i class="menu-icon fas fa-cog"></i>
 										<span class="menu-text">Colores</span>
 									</a>
 								</li>
+
+								<li class="menu-item menu-item-submenu @if(strpos(url()->current(), 'blogs') > -1) menu-item-active @endif" aria-haspopup="true" data-menu-toggle="hover">
+									<a href="javascript:;" class="menu-link menu-toggle">
+										<i class="menu-icon fas fa-book"></i>
+										<span class="menu-text">Blog</span>
+										<i class="menu-arrow"></i>
+									</a>
+									<div class="menu-submenu">
+										<i class="menu-arrow"></i>
+										<ul class="menu-subnav">
+											<li class="menu-item menu-item-parent" aria-haspopup="true">
+												<span class="menu-link">
+													<span class="menu-text">Actions</span>
+												</span>
+											</li>
+											<li class="menu-item" aria-haspopup="true">
+												<a href="{{ route('blogs.create') }}" class="menu-link">
+													<i class="menu-bullet menu-bullet-line">
+														<span></span>
+													</i>
+													<span class="menu-text">Crear</span>
+												</a>
+											</li>
+											<li class="menu-item" aria-haspopup="true">
+												<a href="{{ route('blogs.list') }}" class="menu-link">
+													<i class="menu-bullet menu-bullet-line">
+														<span></span>
+													</i>
+													<span class="menu-text">Listado</span>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</li>
+
+								
+								<li class="menu-item menu-item-submenu @if(strpos(url()->current(), 'staffs') > -1) menu-item-active @endif" aria-haspopup="true" data-menu-toggle="hover">
+									<a href="javascript:;" class="menu-link menu-toggle">
+										<i class="menu-icon fas fa-user-tie"></i>
+										<span class="menu-text">Personal</span>
+										<i class="menu-arrow"></i>
+									</a>
+									<div class="menu-submenu">
+										<i class="menu-arrow"></i>
+										<ul class="menu-subnav">
+											<li class="menu-item menu-item-parent" aria-haspopup="true">
+												<span class="menu-link">
+													<span class="menu-text">Actions</span>
+												</span>
+											</li>
+											<li class="menu-item" aria-haspopup="true">
+												<a href="{{ route('staffs.create') }}" class="menu-link">
+													<i class="menu-bullet menu-bullet-line">
+														<span></span>
+													</i>
+													<span class="menu-text">Crear</span>
+												</a>
+											</li>
+											<li class="menu-item" aria-haspopup="true">
+												<a href="{{ route('staffs.list') }}" class="menu-link">
+													<i class="menu-bullet menu-bullet-line">
+														<span></span>
+													</i>
+													<span class="menu-text">Listado</span>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</li>
+
+								
+
+								
+
+								
+
+								
+
+								
+
+								
+
+								
+
+								
+
+								
 								
 
 							</ul>
