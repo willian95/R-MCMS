@@ -32,7 +32,7 @@ License: You must have a valid license purchased only from themeforest(the above
 		<!--begin::Layout Themes(used by all pages)-->
 		<!--end::Layout Themes-->
 		<!--<link rel="shortcut icon" href="assets/media/logos/favicon.ico" />-->
-		<link rel="shortcut icon" type="image/x-icon" href="{{ url('assets/img/iso.png')}}">
+		<link rel="shortcut icon" type="image/x-icon" href="{{ url('assets/img/favicon.png')}}">
 		<script>
 
 			function toggleUserOptions(){
@@ -93,7 +93,7 @@ License: You must have a valid license purchased only from themeforest(the above
 		<div id="kt_header_mobile" class="header-mobile align-items-center header-mobile-fixed">
 			<!--begin::Logo-->
 			<a href="{{ url('/') }}">
-				<img alt="Logo" class="w-45px logo-login" src="{{ asset('assets/img/logo.svg') }}"  />
+				<img alt="Logo" class="w-45px logo-login" src="{{ asset('assets/img/mainLogo.png') }}"  />
 			</a>
 			<!--end::Logo-->
 			<!--begin::Toolbar-->
@@ -137,7 +137,7 @@ License: You must have a valid license purchased only from themeforest(the above
 						<!--begin::Logo-->
 						<a href="{{ url('/') }}">
 
-							<img alt="Logo" src="{{ asset('assets/img/logo-w.svg')}}" style="width: 100%;" />
+							<img alt="Logo" src="{{ asset('assets/img/mainLogo.png') }}" style="width: 100%;" />
 						</a>
 					</div>
 					<!--end::Brand-->

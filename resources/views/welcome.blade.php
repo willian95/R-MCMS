@@ -16,7 +16,7 @@
                <!---- <p>Bienvenido a Aidacaceres CMS</p>--->
             </div>
             <div class="login100-form validate-form col-md-6">
-            <img class="logo-login" src="{{ asset('assets/img/logo.svg') }}">
+            <img class="logo-login" src="{{ asset('assets/img/mainLogo.png') }}">
                 <p> Content Management System </p>
 
 
