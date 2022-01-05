@@ -12,7 +12,7 @@
                     <div class="card card-custom bg-gray-100 card-stretch gutter-b">
 
                             <!--begin::Chart-->
-                            <div id="kt_mixed_widget_2_chart" class="card-rounded-bottom bg-dark" style="height: 200px"></div>
+                            <div id="kt_mixed_widget_2_chart" class="card-rounded-bottom bg-primary" style="height: 200px"></div>
                             <!--end::Chart-->
                             <!--begin::Stats-->
                             <div class="card-spacer mt-n25">
@@ -29,7 +29,7 @@
                                             </svg><!--end::Svg Icon-->
                                             <!--end::Svg Icon-->
                                         </span>
-                                        <a href="#" class="text-info font-weight-bold font-size-h6">Blog:  {{ App\Models\Blog::count() }}</a>
+                                        <a href="#" class="text-info font-weight-bold font-size-h6">Clientes:  {{ App\Models\User::count() }}</a>
                                     </div>
 
                                     <div class="col bg-white px-6 py-8 rounded-xl mr-7">
@@ -43,7 +43,7 @@
                                             </g>
                                         </svg><!--end::Svg Icon--></span>
                                         </span>
-                                        <a href="#" class="text-info font-weight-bold font-size-h6">Productos:  {{ App\Models\Product::count() }}</a>
+                                        <a href="#" class="text-info font-weight-bold font-size-h6">Ventas:  {{ App\Models\Product::count() }}</a>
                                     </div>
 
                                     <div class="col bg-white px-6 py-8 rounded-xl mr-7">
@@ -58,7 +58,7 @@
                                                 </g>
                                             </svg><!--end::Svg Icon--></span>
                                         </span>
-                                        <a href="#" class="text-info font-weight-bold font-size-h6">Categorías:  {{ App\Models\Category::count() }}</a>
+                                        <a href="#" class="text-info font-weight-bold font-size-h6">Marcas:  {{ App\Models\Brand::count() }}</a>
                                     </div>
 
 
@@ -74,7 +74,235 @@
 
                 </div>
 
+                <div class="col-12">
+					<!--begin::Advance Table Widget 10-->
+					<div class="card card-custom gutter-b card-stretch">
+						<!--begin::Header-->
+						<div class="card-header border-0 py-5">
+							<h3 class="card-title align-items-start flex-column">
+								<span class="card-label font-weight-bolder text-dark">Ventas</span>
+							</h3>
+							<!--<div class="card-toolbar">
+								<a href="#" class="btn btn-info font-weight-bolder font-size-sm">New Report</a>
+							</div>-->
+						</div>
+						<!--end::Header-->
+						<!--begin::Body-->
+						<div class="card-body py-0">
+							<!--begin::Table-->
+							<div class="table-responsive">
+								<table class="table table-head-custom table-vertical-center" id="kt_advance_table_widget_4">
+									<thead>
+										<tr class="text-left">
+											<!--<th class="pl-0" style="width: 30px">
+												<label class="checkbox checkbox-lg checkbox-single mr-2">
+													<input type="checkbox" value="1" />
+													<span></span>
+												</label>
+											</th>-->
+											<th class="pl-0" style="min-width: 120px">#</th>
+											<th style="min-width: 110px">Cliente</th>
+											<th style="min-width: 110px">
+												<span class="text-info">Fecha</span>
+											</th>
+											<th style="min-width: 120px">Total</th>
+										</tr>
+									</thead>
+									<tbody>
+									
+					
+						
+									</tbody>
+								</table>
+							</div>
+							<!--end::Table-->
+						</div>
+						<!--end::Body-->
+					</div>
+					<!--end::Advance Table Widget 10-->
+				</div>
 
+            </div>
         </div>
     </div>
 @endsection
+
+@push("scripts")
+
+    <script>
+        
+        var KTWidgets = function () {
+
+            var _initMixedWidget2 = function () {
+                var element = document.getElementById("kt_mixed_widget_2_chart");
+                var height = parseInt(KTUtil.css(element, 'height'));
+
+                if (!element) {
+                    return;
+                }
+
+                var strokeColor = '#287ED7';
+
+                var options = {
+                    series: [{
+                        name: 'Net Profit',
+                        data: [30, 45, 32, 70, 40, 40, 40]
+                    }],
+                    chart: {
+                        type: 'area',
+                        height: height,
+                        toolbar: {
+                            show: false
+                        },
+                        zoom: {
+                            enabled: false
+                        },
+                        sparkline: {
+                            enabled: true
+                        },
+                        dropShadow: {
+                            enabled: true,
+                            enabledOnSeries: undefined,
+                            top: 5,
+                            left: 0,
+                            blur: 3,
+                            color: strokeColor,
+                            opacity: 0.5
+                        }
+                    },
+                    plotOptions: {},
+                    legend: {
+                        show: false
+                    },
+                    dataLabels: {
+                        enabled: false
+                    },
+                    fill: {
+                        type: 'solid',
+                        opacity: 0
+                    },
+                    stroke: {
+                        curve: 'smooth',
+                        show: true,
+                        width: 3,
+                        colors: [strokeColor]
+                    },
+                    xaxis: {
+                        categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
+                        axisBorder: {
+                            show: false,
+                        },
+                        axisTicks: {
+                            show: false
+                        },
+                        labels: {
+                            show: false,
+                            style: {
+                                colors: KTApp.getSettings()['colors']['gray']['gray-500'],
+                                fontSize: '12px',
+                                fontFamily: KTApp.getSettings()['font-family']
+                            }
+                        },
+                        crosshairs: {
+                            show: false,
+                            position: 'front',
+                            stroke: {
+                                color: KTApp.getSettings()['colors']['gray']['gray-300'],
+                                width: 1,
+                                dashArray: 3
+                            }
+                        },
+                        tooltip: {
+                            enabled: true,
+                            formatter: undefined,
+                            offsetY: 0,
+                            style: {
+                                fontSize: '12px',
+                                fontFamily: KTApp.getSettings()['font-family']
+                            }
+                        }
+                    },
+                    yaxis: {
+                        min: 0,
+                        max: 80,
+                        labels: {
+                            show: false,
+                            style: {
+                                colors: KTApp.getSettings()['colors']['gray']['gray-500'],
+                                fontSize: '12px',
+                                fontFamily: KTApp.getSettings()['font-family']
+                            }
+                        }
+                    },
+                    states: {
+                        normal: {
+                            filter: {
+                                type: 'none',
+                                value: 0
+                            }
+                        },
+                        hover: {
+                            filter: {
+                                type: 'none',
+                                value: 0
+                            }
+                        },
+                        active: {
+                            allowMultipleDataPointsSelection: false,
+                            filter: {
+                                type: 'none',
+                                value: 0
+                            }
+                        }
+                    },
+                    tooltip: {
+                        style: {
+                            fontSize: '12px',
+                            fontFamily: KTApp.getSettings()['font-family']
+                        },
+                        y: {
+                            formatter: function (val) {
+                                return "$" + val + " thousands"
+                            }
+                        },
+                        marker: {
+                            show: false
+                        }
+                    },
+                    colors: ['transparent'],
+                    markers: {
+                        colors: [KTApp.getSettings()['colors']['theme']['light']['info']],
+                        strokeColor: [strokeColor],
+                        strokeWidth: 3
+                    }
+                };
+
+                var chart = new ApexCharts(element, options);
+                chart.render();
+            }
+
+            // Public methods
+            return {
+                init: function () {
+
+                    _initMixedWidget2();
+                   
+                }
+            }
+
+        }();
+
+        // Webpack support
+        if (typeof module !== 'undefined') {
+            module.exports = KTWidgets;
+        }
+
+        jQuery(document).ready(function () {
+            KTWidgets.init();
+        });
+
+        
+        
+    </script>
+
+@endpush
