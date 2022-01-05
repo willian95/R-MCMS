@@ -182,8 +182,8 @@ License: You must have a valid license purchased only from themeforest(the above
 									</div>
 								</li>
 
-								<li class="menu-item @if(strpos(url()->current(), 'service-images') > -1) menu-item-active @endif" aria-haspopup="true">
-									<a href="{{ route('service-images.index') }}" class="menu-link">
+								<li class="menu-item text-center @if(strpos(url()->current(), 'service-images') > -1) menu-item-active @endif" aria-haspopup="true">
+									<a href="{{ route('service-images.index') }}" class="menu-link text-center">
 										<i class="menu-icon far fa-file-image"></i>
 										<span class="menu-text">Imágenes de servicios</span>
 									</a>
