@@ -86,7 +86,7 @@
                                         <th>Código</th>
                                         <th>Monto de descuento</th>
                                         <th>Tipo de descuento</th>
-                                        <th>Fecha limite</th>
+                                        <th>Fecha límite</th>
                                         <th>¿Descuento por producto o por carrito?</th>
                                         <th>Acciones</th>
                                     </tr>

@@ -80,7 +80,7 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Nombre</th>
-                                        <th>Telefono</th>
+                                        <th>Teléfono</th>
                                         <th>Dirección</th>
                                         <th>Email</th>
                                         <th>Cédula</th>

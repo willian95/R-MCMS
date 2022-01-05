@@ -180,7 +180,7 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="col-12 mt-2 mb-2">
-                                        <h3 class="text-center">Fecha limite</h3>
+                                        <h3 class="text-center">Fecha límite</h3>
                                     </div>
                                     <div class="col-12">
 

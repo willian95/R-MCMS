@@ -23,7 +23,7 @@
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="name">Imagen o video clínica (jpg,png, mp4 | Dimensiones recomendadas: 1110x500px )</label>
+                                <label for="name">Imagen o video clínica (jpg,png, mp4 | Dimensiones recomendadas: 1110x500px | max: 4mb )</label>
                                 <input type="file" class="form-control" ref="file" @change="onImageChange" accept="image/* | video/*" style="overflow: hidden;">
 
                                 <img id="blah" :src="imagePreview" class="full-image" style="margin-top: 10px; width: 40%" v-if="imagePreview != '' && mainImageFileType == 'image'">
@@ -47,7 +47,7 @@
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="name">Imagen o video peluquería (jpg,png, mp4 | Dimensiones recomendadas: 1110x500px )</label>
+                                <label for="name">Imagen o video peluquería (jpg,png, mp4 | Dimensiones recomendadas: 1110x500px | max: 4mb )</label>
                                 <input type="file" class="form-control" ref="file" @change="onImageChange2" accept="image/* | video/*" style="overflow: hidden;">
 
                                 <img id="blah" :src="imagePreview2" class="full-image" style="margin-top: 10px; width: 40%" v-if="imagePreview2 != '' && mainImageFileType2 == 'image'">
@@ -72,7 +72,7 @@
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="name">Imagen o video hotel (jpg,png, mp4 | Dimensiones recomendadas: 1110x500px )</label>
+                                <label for="name">Imagen o video hotel (jpg,png, mp4 | Dimensiones recomendadas: 1110x500px | max: 4mb )</label>
                                 <input type="file" class="form-control" ref="file" @change="onImageChange3" accept="image/* | video/*" style="overflow: hidden;">
 
                                 <img id="blah" :src="imagePreview3" class="full-image" style="margin-top: 10px; width: 40%" v-if="imagePreview3 != '' && mainImageFileType3 == 'image'">
