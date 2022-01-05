@@ -21,7 +21,7 @@
                 <div class="card-body">
                     <div class="row">
 
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <label for="name">Nombre</label>
                                 <input class="form-control" v-model="title">
@@ -29,7 +29,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-8">
                             <div class="form-group">
                                 <label for="name">Imágen principal (jpg,png | Dimensiones recomendadas: 1110x500px | max: 4mb )</label>
                                 <input type="file" class="form-control" ref="file" @change="onImageChange" accept="image/*" style="overflow: hidden;">
@@ -58,7 +58,7 @@
                                     <label for="caninos">Caninos</label>
                                 </div>
 
-                                <div>
+                                <div class="ml-7">
                                     <input type="checkbox" id="felinos" v-model="cat_category">
                                     <label for="felinos">Felinos</label>
                                 </div>
