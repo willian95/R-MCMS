@@ -93,7 +93,7 @@
                 <!--begin::Body-->
                 <div class="card-body">
                     <!--begin: Datatable-->
-                    <div class="datatable datatable-bordered datatable-head-custom datatable-default datatable-primary datatable-loaded" id="kt_datatable" style="">
+                    <div class="datatable datatable-bordered datatable-head-custom datatable-default datatable-primary datatable-loaded" style="">
                         <table class="table">
                             <thead>
                                 <tr >

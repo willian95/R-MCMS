@@ -75,7 +75,7 @@
                         </div>
                         <div class="card-body">
                             <!--begin: Datatable-->
-                            <table class="table table-bordered table-checkable" id="kt_datatable">
+                            <table class="table table-bordered table-checkable">
                                 <thead>
                                     <tr>
                                         <th>#</th>
