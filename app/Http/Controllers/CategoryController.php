@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Requests\Category\CategoryStoreRequest;
-use App\Requests\Category\CategoryUpdateRequest;
+use App\Http\Requests\Category\CategoryStoreRequest;
+use App\Http\Requests\Category\CategoryUpdateRequest;
 use App\Models\Category;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\CategoriesExport;
