@@ -521,11 +521,16 @@ License: You must have a valid license purchased only from themeforest(the above
 		<script src="{{ asset('assets/plugins/global/plugins.bundle.js') }}"></script>
 		<script src="{{ asset('assets/plugins/custom/prismjs/prismjs.bundle.js') }}"></script>
 		<script src="{{ asset('assets/js/scripts.bundle.js') }}"></script>
+		<script src="{{ asset('alertify/alertify.js') }}"></script>
 		<!--end::Global Theme Bundle-->
 		<!--begin::Page Scripts(used by this page)-->
 		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 		<script src="{{ asset('assets/js/pages/custom/user/list-datatable.js') }}"></script>
 		<script src="{{ asset('/js/app.js') }}"></script>
+
+		<script>
+			alertify.set('notifier', 'position', 'top-right');
+		</script>
 
 		@stack("scripts")
 

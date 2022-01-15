@@ -18,8 +18,8 @@ class CreateCartsTable extends Migration
 
             $table->unsignedBigInteger("order_id");
             $table->foreign("order_id")->references("id")->on("orders");
-            $table->unsignedBigInteger("product_id");
-            $table->foreign("product_id")->references("id")->on("products");
+            $table->unsignedBigInteger("product_format_id");
+            $table->foreign("product_format_id")->references("id")->on("product_formats");
 
             $table->integer("amount");
 

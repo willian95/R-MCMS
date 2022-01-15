@@ -151,7 +151,7 @@
                                 "text": res.data.msg 
                             }).then(ans => {
 
-                                window.location.href="{{ url('/admin/coupon/index') }}"
+                                window.location.href="{{ url('/coupons/index') }}"
 
                             })
 
@@ -182,14 +182,14 @@
 
                 if(this.allUsers == false && this.selectedUsersDetail.length == 0){
                     
-                    alertify.error("Debes seleccionar usuarios")
+                    alert("Debes seleccionar usuarios")
                     
                     return false
                 }
 
                 if(this.allProducts == false && this.selectedProductsDetail.length == 0){
                     
-                    alertify.error("Debes seleccionar productos")
+                    alert("Debes seleccionar productos")
                     
                     return false
                 }
