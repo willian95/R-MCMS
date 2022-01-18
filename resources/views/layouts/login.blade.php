@@ -104,7 +104,7 @@
     .login_admin button {
         outline: none !important;
         border: none;
-        background: #0d3c66;
+        background: #e50019;
         width: 114px;
 
         font-family: inherit !important;
@@ -194,7 +194,8 @@
         height: 100%;
         top: 0;
         left: 0;
-        background: rgb(19 44 84 / 58%);
+        background: rgb(0 0 0 / 11%);
+
     }
 
 
