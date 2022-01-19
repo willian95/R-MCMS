@@ -105,7 +105,7 @@ Route::get("banners/edit/{id}", [BannerController::class, "edit"]);
 Route::view("products/create", "products.create.index")->name("products.create")->middleware("auth");
 Route::view("products/list", "products.list.index")->name("products.list")->middleware("auth");
 Route::post("products/store", [ProductController::class, "store"])->name("products.store");
-Route::post("banners/update", [ProductController::class, "update"])->name("products.update");
+Route::post("products/update", [ProductController::class, "update"])->name("products.update");
 Route::post("products/delete", [ProductController::class, "delete"])->name("products.delete");
 Route::get("products/fetch", [ProductController::class, "fetch"])->name("products.fetch");
 Route::get("products/edit/{id}", [ProductController::class, "edit"]);
