@@ -9,6 +9,10 @@ class FileController extends Controller
 {
     function upload(Request $request){
 
+        ini_set('upload_max_size', '20M');
+        ini_set('post_max_size', '20M');
+        ini_set( 'max_execution_time', '300' );
+
         $fileType = "";
         $originName = $request->file('file')->getClientOriginalName();
         $extension = $request->file('file')->getClientOriginalExtension();
