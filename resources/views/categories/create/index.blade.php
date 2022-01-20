@@ -31,7 +31,7 @@
 
                         <div class="col-md-8">
                             <div class="form-group">
-                                <label for="name">Imágen principal (jpg,png | Dimensiones recomendadas: 1110x500px | max: 4mb )</label>
+                                <label for="name">Imágen principal (jpg,png | Dimensiones recomendadas: 1110x500px | max: 8mb )</label>
                                 <input type="file" class="form-control" ref="file" @change="onImageChange" accept="image/*" style="overflow: hidden;">
 
                                 <img id="blah" :src="imagePreview" class="full-image" style="margin-top: 10px; width: 40%">

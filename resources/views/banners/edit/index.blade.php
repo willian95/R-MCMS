@@ -13,7 +13,7 @@
                 <!--begin::Header-->
                 <div class="card-header flex-wrap border-0 pt-6 pb-0">
                     <div class="card-title">
-                        <h3 class="card-label">Editar marca
+                        <h3 class="card-label">Editar banner
                     </div>
                 </div>
                 <!--end::Header-->
@@ -39,7 +39,7 @@
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="name">Imágen principal o video (jpg, png, mp4 | Dimensiones recomendadas: 1110x500px  | max: 4mb )</label>
+                                <label for="name">Imágen principal o video (jpg, png, mp4 | Dimensiones recomendadas: 1110x500px  | max: 8mb )</label>
                                 <input type="file" class="form-control" ref="file" @change="onImageChange" accept="image/* | video/*" style="overflow: hidden;">
 
                                 <img id="blah" :src="imagePreview" class="full-image" style="margin-top: 10px; width: 40%" v-if="imagePreview != '' && mainImageFileType == 'image'">

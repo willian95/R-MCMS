@@ -57,7 +57,7 @@
 
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="image">Imágen (jpg, png | Dimensiones recomendadas: 1110x500px | max: 4mb )</label>
+                                <label for="image">Imágen (jpg, png | Dimensiones recomendadas: 1110x500px | max: 8mb )</label>
                                 <input type="file" class="form-control" ref="file" @change="onMainImageChange" accept="image/*" style="overflow: hidden;">
 
                                 <img id="blah" :src="imagePreview" class="full-image" style="margin-top: 10px; width: 40%">
@@ -76,7 +76,7 @@
 
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="image">Imágen hover (jpg, png | Dimensiones recomendadas: 1110x500px | max: 4mb )</label>
+                                <label for="image">Imágen hover (jpg, png | Dimensiones recomendadas: 1110x500px | max: 8mb )</label>
                                 <input type="file" class="form-control" ref="file" @change="onHoverImageChange" accept="image/*" style="overflow: hidden;">
 
                                 <img id="blah" :src="imageHoverPreview" class="full-image" style="margin-top: 10px; width: 40%">
@@ -295,7 +295,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="type">Imágen o vídeo (jpg, png, mp4 | Dimensiones recomendadas: 1110x500px | max: 4mb )</label>
+                                    <label for="type">Imágen o vídeo (jpg, png, mp4 | Dimensiones recomendadas: 1110x500px | max: 8mb )</label>
                                     <input type="file" class="form-control" ref="file" @change="onSecondaryImageChange" accept="image/* | video/*" style="overflow: hidden;">
 
                                     <img id="blah" :src="secondaryPreviewPicture" v-if="secondaryPreviewPicture != '' && secondaryFileType == 'image'" class="full-image" style="margin-top: 10px; width: 40%">
