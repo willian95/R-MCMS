@@ -128,6 +128,7 @@ Route::get("products/pdf", [ProductController::class, "pdfExport"]);
 
 Route::view("orders/index", "orders.index")->name("orders.index")->middleware("auth");
 Route::get("orders/fetch", [OrderController::class, "fetch"])->name("orders.fetch");
+Route::get("orders/excel", [OrderController::class, "excelExport"]);
 
 Route::view("clients/index", "clients.index")->name("clients.index")->middleware("auth");
 Route::get("clients/fetch", [ClientController::class, "fetch"])->name("clients.fetch");

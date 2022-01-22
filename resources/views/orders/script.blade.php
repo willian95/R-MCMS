@@ -11,7 +11,12 @@
                 totalPages:"",
                 linkClass:"page-link",
                 activeLinkClass:"page-link active-link bg-main",
-                showMenu:false
+                showMenu:false,
+
+                links:[],
+                currentPage:"",
+                totalPages:"",
+
             }
         },
         methods:{
@@ -28,7 +33,10 @@
                 axios.get("{{ route('orders.fetch') }}")
                 .then(res => {
 
-                    this.shoppings = res.data
+                    this.shoppings = res.data.data
+                    this.links = res.data.links
+                    this.currentPage = res.data.current_page
+                    this.totalPages = res.data.last_page
 
                 })
                 .catch(err => {

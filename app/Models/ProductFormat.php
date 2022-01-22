@@ -23,4 +23,10 @@ class ProductFormat extends Model
         return $this->belongsTo(Product::class);
     }
 
+    public function productPurchase(){
+        return $this->hasMany(ProductPurchase::class);
+    }
+
+
+
 }

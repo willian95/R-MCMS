@@ -24,10 +24,10 @@
 
                                 <div class="col-lg-12 mt-2 mb-2">
                                     <h3 class="text-center">Productos</h3>
-                                    <div class="form-group form-check">
+                                    {{--<div class="form-group form-check">
                                         <input type="checkbox" class="form-check-input" id="exampleCheck1" v-model="allProducts">
                                         <label class="form-check-label" for="exampleCheck1">Todos los productos</label>
-                                    </div>
+                                    </div>--}}
                                 </div>
 
                                 <div class="col-lg-6" v-if="allProducts == false">
@@ -75,10 +75,10 @@
                                 <div class="col-lg-12 mt-2 mb-2">
                                     
                                     <h3 class="text-center">Usuarios</h3>
-                                    <div class="form-group form-check">
+                                    {{--<div class="form-group form-check">
                                         <input type="checkbox" class="form-check-input" id="exampleCheck1" v-model="allUsers">
                                         <label class="form-check-label" for="exampleCheck1">Todos los usuarios</label>
-                                    </div>
+                                    </div>--}}
                                 </div>
 
                                 <div class="col-lg-6" v-if="allUsers == false">

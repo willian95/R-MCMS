@@ -37,7 +37,7 @@
                                             <li class="navi-header font-weight-bolder text-uppercase font-size-sm text-primary pb-2">Elige una opción:</li>
                                             
                                             <li class="navi-item">
-                                                <a href="{{ url('/admin/shopping/excel') }}" target="_blank" class="navi-link">
+                                                <a href="{{ url('orders/excel') }}" target="_blank" class="navi-link">
                                                     <span class="navi-icon">
                                                         <i class="la la-file-excel-o"></i>
                                                     </span>
@@ -68,10 +68,9 @@
                                 <tbody>
                                     <tr v-for="(shopping, index) in shoppings">
                                         <th>@{{ shopping.order_id }}</th>
-                                        <td v-if="shopping.user">@{{ shopping.user.name }}</td>
-                                        <td v-if="shopping.guest">@{{ shopping.guest.name }}</td>
+                                        <td>@{{ shopping.name }}</td>
                                         <td style="text-transform: capitalize;">@{{ shopping.status }}</td>
-                                        <td>$ @{{ parseInt(shopping.total).toString().replace(/\B(?=(\d{3})+\b)/g, ".") }}</td>
+                                        <td>$ @{{ parseInt(shopping.total_products + shopping.shipping_price).toString().replace(/\B(?=(\d{3})+\b)/g, ".") }}</td>
                                         <td>@{{ shopping.created_at.toString().substring(0, 10) }}</td>
                                         <td>
                                             <button class="btn btn-primary" data-toggle="modal" data-target="#shoppingModal" @click="show(shopping)"><i class="far fa-eye"></i></button>
@@ -79,27 +78,19 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            <div class="row">
+                            <div class="row w-100">
                                 <div class="col-sm-12 col-md-5">
-                                    <div class="dataTables_info" id="kt_datatable_info" role="status" aria-live="polite">Mostrando página @{{ page }} de @{{ pages }}</div>
+                                    <div class="dataTables_info" id="kt_datatable_info" role="status" aria-live="polite">Mostrando página @{{ currentPage }} de @{{ totalPages }}</div>
                                 </div>
                                 <div class="col-sm-12 col-md-7">
                                     <div class="dataTables_paginate paging_full_numbers" id="kt_datatable_paginate">
                                         <ul class="pagination">
-                                            <li class="paginate_button page-item previous disabled" id="kt_datatable_previous" v-if="page > 1">
-                                                <a href="#" aria-controls="kt_datatable" data-dt-idx="1" tabindex="0" class="page-link">
-                                                    <i class="ki ki-arrow-back"></i>
-                                                </a>
-                                            </li>
-                                            <li class="paginate_button page-item active" v-for="index in pages">
-                                                <a href="#" aria-controls="kt_datatable" tabindex="0" class="page-link":key="index" @click="fetch(index)" >@{{ index }}</a>
+                                            
+                                            <li class="paginate_button page-item active" v-for="(link, index) in links">
+                                                <a style="cursor: pointer" aria-controls="kt_datatable" tabindex="0" :class="link.active == false ? linkClass : activeLinkClass":key="index" @click="fetch(link.url)" v-html="link.label.replace('Previous', 'Anterior').replace('Next', 'Siguiente')"></a>
                                             </li>
                                             
-                                            <li class="paginate_button page-item next" id="kt_datatable_next" v-if="page < pages" href="#">
-                                                <a href="#" aria-controls="kt_datatable" data-dt-idx="7" tabindex="0" class="page-link" @click="fetch(page + 6)">
-                                                    <i class="ki ki-arrow-next"></i>
-                                                </a>
-                                            </li>
+                                            
                                         </ul>
                                     </div>
                                 </div>
@@ -126,13 +117,19 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <label><strong>Cliente</strong></label>
-                                    <p v-if="shopping.user">@{{ shopping.user.name }}</p>
-                                    <p v-if="shopping.guest">@{{ shopping.guest.name }}</p>
+                                    <p>@{{ shopping.name }}</p>
                                 </div>
                                 <div class="col-md-6">
                                     <label><strong>Email</strong></label>
-                                    <p v-if="shopping.user">@{{ shopping.user.email }}</p>
-                                    <p v-if="shopping.guest">@{{ shopping.guest.email }}</p>
+                                    <p>@{{ shopping.email }}</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <label><strong>Dirección</strong></label>
+                                    <p>@{{ shopping.address }}</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <label><strong>Teléfono</strong></label>
+                                    <p>@{{ shopping.phone }}</p>
                                 </div>
                                 <div class="col-md-6">
                                     <label><strong>Costo productos</strong></label>
@@ -140,26 +137,13 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label><strong>Costo envío</strong></label>
-                                    <p>$ @{{ parseInt(shopping.shipping_cost).toString().replace(/\B(?=(\d{3})+\b)/g, ".") }}</p>
+                                    <p>$ @{{ parseInt(shopping.shipping_price).toString().replace(/\B(?=(\d{3})+\b)/g, ".") }}</p>
                                 </div>
                                 <div class="col-md-6">
                                     <label><strong>Total</strong></label>
-                                    <p>$ @{{ parseInt(shopping.total).toString().replace(/\B(?=(\d{3})+\b)/g, ".") }}</p>
+                                    <p>$ @{{ parseInt(shopping.total_products + shopping.shipping_price).toString().replace(/\B(?=(\d{3})+\b)/g, ".") }}</p>
                                 </div>
-                                <div class="col-md-6">
-                                    <label><strong>Tracking</strong></label>
-                                    <p>
-                                    <a :href="shopping.tracking_url">@{{ shopping.tracking }}</a>
-                                    </p>
-                                </div>
-                                <!--<div class="col-md-6">
-                                    <label>Status tracing</label>
-                                    <p>@{{ shopping.status_shipping }}</p>
-                                </div>-->
-                                <div class="col-md-6">
-                                    <label><strong>Dirección</strong></label>
-                                    <p>@{{ shopping.address }}</p>
-                                </div>
+
                                 <div class="col-md-12">
                                     <h3 class="text-center">Productos</h3>
                                 </div>
@@ -169,16 +153,18 @@
                                             <tr>
                                                 <th>Producto</th>
                                                 <th>Precio</th>
-                                                <th>Tipo</th>
+                                                <th>Color</th>
                                                 <th>Tamaño</th>
+                                                <th>Cantidad</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr v-for="(shoppingPurchase, index) in shopping.product_purchases">
-                                                <td>@{{ shoppingPurchase.product_type_size.product.brand.name }} - @{{ shoppingPurchase.product_type_size.product.name }}</td>
-                                                <td>$ @{{ parseInt(shoppingPurchase.price).toString().replace(/\B(?=(\d{3})+\b)/g, ".") }}</td>
-                                                <td>@{{ shoppingPurchase.product_type_size.type.name }}</td>
-                                                <td>@{{ shoppingPurchase.product_type_size.size.name }} OZ - @{{ shoppingPurchase.product_type_size.size.ml }} ML</td>
+                                                <td>@{{ shoppingPurchase.product_format.product.name }}</td>
+                                                <td>$ @{{ parseInt(shoppingPurchase.product_format.price).toString().replace(/\B(?=(\d{3})+\b)/g, ".") }}</td>
+                                                <td>@{{ shoppingPurchase.product_format.color.color }}</td>
+                                                <td>@{{ shoppingPurchase.product_format.size.size }}</td>
+                                                <td>@{{ shoppingPurchase.amount }}</td>
                                             </tr>
                                         </tbody>
                                     </table>
