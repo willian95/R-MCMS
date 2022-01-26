@@ -23,7 +23,7 @@
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="name">Imágen o video clínica (jpg,png, mp4 | Dimensiones recomendadas: 1110x500px | max: 8mb )</label>
+                                <label for="name">Imágen o video clínica (jpg,png, mp4 | Dimensiones recomendadas: 1024x900px | max: 8 Mb )</label>
                                 <input type="file" class="form-control" ref="file" @change="onImageChange" accept="image/* | video/*" style="overflow: hidden;">
 
                                 <img id="blah" :src="imagePreview" class="full-image" style="margin-top: 10px; width: 40%" v-if="imagePreview != '' && mainImageFileType == 'image'">
@@ -37,7 +37,7 @@
                                 <div v-if="pictureStatus == 'subiendo'" class="progress-bar progress-bar-striped" role="progressbar" aria-valuemin="0" aria-valuemax="100" :style="{'width': `${imageProgress}%`}">
                                     @{{ imageProgress }}%
                                 </div>
-                                
+
                                 <p v-if="pictureStatus == 'subiendo' && imageProgress < 100">Subiendo</p>
                                 <p v-if="pictureStatus == 'subiendo' && imageProgress == 100">Espere un momento</p>
                                 <p v-if="pictureStatus == 'listo' && imageProgress == 100">Imágen lista</p>
@@ -47,7 +47,7 @@
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="name">Imágen o video peluquería (jpg,png, mp4 | Dimensiones recomendadas: 1110x500px | max: 8mb )</label>
+                                <label for="name">Imágen o video peluquería (jpg,png, mp4 | Dimensiones recomendadas: 1024x900px | max: 8 Mb )</label>
                                 <input type="file" class="form-control" ref="file" @change="onImageChange2" accept="image/* | video/*" style="overflow: hidden;">
 
                                 <img id="blah" :src="imagePreview2" class="full-image" style="margin-top: 10px; width: 40%" v-if="imagePreview2 != '' && mainImageFileType2 == 'image'">
@@ -61,7 +61,7 @@
                                 <div v-if="pictureStatus2 == 'subiendo'" class="progress-bar progress-bar-striped" role="progressbar" aria-valuemin="0" aria-valuemax="100" :style="{'width': `${imageProgress2}%`}">
                                     @{{ imageProgress2 }}%
                                 </div>
-                                
+
                                 <p v-if="pictureStatus2 == 'subiendo' && imageProgress2 < 100">Subiendo</p>
                                 <p v-if="pictureStatus2 == 'subiendo' && imageProgress2 == 100">Espere un momento</p>
                                 <p v-if="pictureStatus2 == 'listo' && imageProgress2 == 100">Imágen lista</p>
@@ -72,7 +72,7 @@
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="name">Imágen o video hotel (jpg,png, mp4 | Dimensiones recomendadas: 1110x500px | max: 8mb )</label>
+                                <label for="name">Imágen o video hotel (jpg,png, mp4 | Dimensiones recomendadas: 1024x900px | max: 8 Mb )</label>
                                 <input type="file" class="form-control" ref="file" @change="onImageChange3" accept="image/* | video/*" style="overflow: hidden;">
 
                                 <img id="blah" :src="imagePreview3" class="full-image" style="margin-top: 10px; width: 40%" v-if="imagePreview3 != '' && mainImageFileType3 == 'image'">
@@ -86,7 +86,7 @@
                                 <div v-if="pictureStatus3 == 'subiendo'" class="progress-bar progress-bar-striped" role="progressbar" aria-valuemin="0" aria-valuemax="100" :style="{'width': `${imageProgress3}%`}">
                                     @{{ imageProgress3 }}%
                                 </div>
-                                
+
                                 <p v-if="pictureStatus3 == 'subiendo' && imageProgress3 < 100">Subiendo</p>
                                 <p v-if="pictureStatus3 == 'subiendo' && imageProgress3 == 100">Espere un momento</p>
                                 <p v-if="pictureStatus3 == 'listo' && imageProgress3 == 100">Imágen lista</p>

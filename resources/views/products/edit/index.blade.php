@@ -20,7 +20,7 @@
                 <!--begin::Body-->
                 <div class="card-body">
                     <div class="row">
-                                
+
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="name">Título</label>
@@ -57,7 +57,7 @@
 
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="image">Imágen (jpg, png | Dimensiones recomendadas: 1110x500px | max: 8mb )</label>
+                                <label for="image">Imágen (jpg, png | Dimensiones recomendadas: 1024x900px | max: 8 Mb )</label>
                                 <input type="file" class="form-control" ref="file" @change="onMainImageChange" accept="image/*" style="overflow: hidden;">
 
                                 <img id="blah" :src="imagePreview" class="full-image" style="margin-top: 10px; width: 40%">
@@ -65,7 +65,7 @@
                                 <div v-if="pictureStatus == 'subiendo'" class="progress-bar progress-bar-striped" role="progressbar" aria-valuemin="0" aria-valuemax="100" :style="{'width': `${imageProgress}%`}">
                                     @{{ imageProgress }}%
                                 </div>
-                                
+
                                 <p v-if="pictureStatus == 'subiendo' && imageProgress < 100">Subiendo</p>
                                 <p v-if="pictureStatus == 'subiendo' && imageProgress == 100">Espere un momento</p>
                                 <p v-if="pictureStatus == 'listo' && imageProgress == 100">Imágen lista</p>
@@ -76,7 +76,7 @@
 
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="image">Imágen hover (jpg, png | Dimensiones recomendadas: 1110x500px | max: 8mb )</label>
+                                <label for="image">Imágen hover (jpg, png | Dimensiones recomendadas: 1024x900px | max: 8 Mb )</label>
                                 <input type="file" class="form-control" ref="file" @change="onHoverImageChange" accept="image/*" style="overflow: hidden;">
 
                                 <img id="blah" :src="imageHoverPreview" class="full-image" style="margin-top: 10px; width: 40%">
@@ -84,7 +84,7 @@
                                 <div v-if="pictureHoverStatus == 'subiendo'" class="progress-bar progress-bar-striped" role="progressbar" aria-valuemin="0" aria-valuemax="100" :style="{'width': `${imageHoverProgress}%`}">
                                     @{{ imageHoverProgress }}%
                                 </div>
-                                
+
                                 <p v-if="pictureHoverStatus == 'subiendo' && imageHoverProgress < 100">Subiendo</p>
                                 <p v-if="pictureHoverStatus == 'subiendo' && imageHoverProgress == 100">Espere un momento</p>
                                 <p v-if="pictureHoverStatus == 'listo' && imageHoverProgress == 100">Imágen lista</p>
@@ -123,7 +123,7 @@
                                 <tbody>
                                     <tr v-for="(workImage, index) in workImages">
                                         <td>@{{ index + 1 }}</td>
-                                        
+
                                         <td>
                                             <img v-if="workImage.type == 'image'" :src="workImage.image" style="width: 40%;">
                                             <video class="w-100" controls v-if="workImage.image != '' && workImage.type == 'video'">
@@ -133,11 +133,11 @@
                                             </video>
                                         </td>
                                         <td>
-                                            
+
                                             <div v-if="workImage.status == 'subiendo'" class="progress-bar progress-bar-striped" role="progressbar" aria-valuemin="0" aria-valuemax="100" :style="{'width': `${workImage.progress}%`}">
                                                 @{{ workImage.progress }}%
                                             </div>
-                                           
+
                                             <p v-if="workImage.status == 'subiendo' && workImage.progress < 100">Subiendo</p>
                                             <p v-if="workImage.status == 'subiendo' && workImage.progress == 100">Espere un momento</p>
                                             <p v-if="workImage.status == 'listo' && workImage.progress == 100">Contenido listo</p>
@@ -151,7 +151,7 @@
 
                         </div>
 
-    
+
                     </div>
 
                     <div class="row">
@@ -221,7 +221,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        
+
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group">
@@ -262,21 +262,21 @@
                                     <label for="price">Stock</label>
                                     <div class="input-group mb-3">
                                         <input type="text" class="form-control" v-model="stock" @keypress="isNumberDot($event)">
-                                        
+
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                     </div>
-                    
+
                     <div class="modal-footer">
                         <button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Cerrar</button>
                         <button class="btn btn-success" @click="addProductColor()">Añadir</button>
                     </div>
                 </div>
             </div>
-        </div>  
+        </div>
 
 
 
@@ -291,11 +291,11 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        
+
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="type">Imágen o vídeo (jpg, png, mp4 | Dimensiones recomendadas: 1110x500px | max: 8mb )</label>
+                                    <label for="type">Imágen o vídeo (jpg, png, mp4 | Dimensiones recomendadas: 1024x900px | max: 8 Mb )</label>
                                     <input type="file" class="form-control" ref="file" @change="onSecondaryImageChange" accept="image/* | video/*" style="overflow: hidden;">
 
                                     <img id="blah" :src="secondaryPreviewPicture" v-if="secondaryPreviewPicture != '' && secondaryFileType == 'image'" class="full-image" style="margin-top: 10px; width: 40%">
@@ -312,14 +312,14 @@
                         </div>
 
                     </div>
-                    
+
                     <div class="modal-footer">
                         <button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Cerrar</button>
                         <button class="btn btn-success" @click="addSecondaryImage()">Añadir</button>
                     </div>
                 </div>
             </div>
-        </div>  
+        </div>
 
 
     </div>
