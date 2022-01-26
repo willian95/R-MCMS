@@ -4,8 +4,8 @@
         el: '#dev-products',
         data(){
             return{
-                dog_category:"{{ $category->dog_category }}",
-                cat_category:"{{ $category->cat_category }}",
+                dog_category:JSON.parse("{{ $category->dog_category }}"),
+                cat_category:JSON.parse("{{ $category->cat_category }}"),
                 pictureStatus:"",
                 imageProgress:"",
                 finalPictureName:"",
@@ -126,7 +126,7 @@
                     dog_category: this.dog_category,
                     cat_category: this.cat_category,
                     name:this.title,
-                    image: this.finalPictureName,
+                    image: "imagen.jpg",
                     id:this.id
                 }).then(res => {
                     this.loading = false
