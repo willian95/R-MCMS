@@ -102,6 +102,7 @@
                         </div>
 
                     </div>
+                    <!---->
                     <div class="row">
                         <div class="col-12">
                         <h3 class="text-center">Contenido secundario <button class="btn btn-success" data-toggle="modal" data-target="#secondaryImagesModal">+</button></h3>
