@@ -121,6 +121,15 @@
 
             update(){
 
+                if(this.dog_category == 0 && this.cat_category == 0){
+                    swal({
+                        text: "Debes elegir si esta categoría es para caninos o felinos",
+                        icon: "warning"
+                    })
+
+                    return
+                }
+
                 this.loading = true
                 axios.post("{{ route('categories.update') }}", {
                     dog_category: this.dog_category,
