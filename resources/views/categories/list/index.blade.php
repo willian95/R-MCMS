@@ -94,10 +94,6 @@
                                     </th>
 
                                     <th class="datatable-cell datatable-cell-sort" style="width: 170px;">
-                                        <span>Imágen</span>
-                                    </th>
-
-                                    <th class="datatable-cell datatable-cell-sort" style="width: 170px;">
                                         <span>Tipo</span>
                                     </th>
 
@@ -110,9 +106,6 @@
                                 <tr v-for="category in categories">
                                     <td class="datatable-cell">
                                         @{{ category.name }}
-                                    </td>
-                                    <td class="datatable-cell">
-                                        <img :src="category.image" alt="" style="width: 250px;">
                                     </td>
                                     <td class="datatable-cell">
                                         <span v-if="category.cat_category == true">

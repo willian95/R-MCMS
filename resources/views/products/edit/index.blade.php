@@ -102,6 +102,7 @@
                         </div>
 
                     </div>
+                    <!---->
                     <div class="row">
                         <div class="col-12">
                         <h3 class="text-center">Contenido secundario <button class="btn btn-success" data-toggle="modal" data-target="#secondaryImagesModal">+</button></h3>
@@ -111,7 +112,7 @@
                     <div class="row">
                         <div class="col-12">
 
-                            <table class="table table-bordered table-checkable" id="kt_datatable">
+                            <table class="table table-bordered table-checkable">
                                 <thead>
                                     <tr>
                                         <th>#</th>
@@ -164,7 +165,7 @@
                     <div class="row">
                         <div class="col-12">
 
-                            <table class="table table-bordered table-checkable" id="kt_datatable">
+                            <table class="table table-bordered table-checkable">
                                 <thead>
                                     <tr>
                                         <th>#</th>

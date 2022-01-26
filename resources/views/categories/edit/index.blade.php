@@ -29,7 +29,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6">
+                        {{--<div class="col-md-6">
                             <div class="form-group">
                                 <label for="name">Imágen principal (jpg,png | Dimensiones recomendadas: 1024x900px | max: 8 Mb )</label>
                                 <input type="file" class="form-control" ref="file" @change="onImageChange" accept="image/*" style="overflow: hidden;">
@@ -46,7 +46,7 @@
 
                                 <small v-if="errors.hasOwnProperty('image')">@{{ errors['image'][0] }}</small>
                             </div>
-                        </div>
+                        </div>--}}
 
                         <div class="col-md-6">
                             <h3>Selecciona a que tipo pertenece</h3>
@@ -71,7 +71,7 @@
                     <div class="row">
                         <div class="col-12">
                             <p class="text-center">
-                                <button class="btn btn-success" @click="uploadMainImage()">Actualizar</button>
+                                <button class="btn btn-success" @click="update()">Actualizar</button>
                             </p>
                         </div>
                     </div>
