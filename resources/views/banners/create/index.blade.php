@@ -39,7 +39,7 @@
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="name">Imágen principal o video (jpg, png, mp4 | Dimensiones recomendadas: 1110x500px | max: 8mb )</label>
+                                <label for="name">Imágen principal o video (jpg, png, mp4 | Dimensiones recomendadas: 1024x900px | max: 8 Mb )</label>
                                 <input type="file" class="form-control" ref="file" @change="onImageChange" accept="image/* | video/*" style="overflow: hidden;">
 
                                 <img id="blah" :src="imagePreview" class="full-image" style="margin-top: 10px; width: 40%" v-if="imagePreview != '' && mainImageFileType == 'image'">
@@ -53,7 +53,7 @@
                                 <div v-if="pictureStatus == 'subiendo'" class="progress-bar progress-bar-striped" role="progressbar" aria-valuemin="0" aria-valuemax="100" :style="{'width': `${imageProgress}%`}">
                                     @{{ imageProgress }}%
                                 </div>
-                                
+
                                 <p v-if="pictureStatus == 'subiendo' && imageProgress < 100">Subiendo</p>
                                 <p v-if="pictureStatus == 'subiendo' && imageProgress == 100">Espere un momento</p>
                                 <p v-if="pictureStatus == 'listo' && imageProgress == 100">Imágen lista</p>

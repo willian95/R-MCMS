@@ -31,7 +31,7 @@
 
                         {{--<div class="col-md-8">
                             <div class="form-group">
-                                <label for="name">Imágen principal (jpg,png | Dimensiones recomendadas: 1110x500px | max: 8mb )</label>
+                                <label for="name">Imágen principal (jpg,png | Dimensiones recomendadas: 1024x900px | max: 8 Mb )</label>
                                 <input type="file" class="form-control" ref="file" @change="onImageChange" accept="image/*" style="overflow: hidden;">
 
                                 <img id="blah" :src="imagePreview" class="full-image" style="margin-top: 10px; width: 40%">
@@ -39,7 +39,7 @@
                                 <div v-if="pictureStatus == 'subiendo'" class="progress-bar progress-bar-striped" role="progressbar" aria-valuemin="0" aria-valuemax="100" :style="{'width': `${imageProgress}%`}">
                                     @{{ imageProgress }}%
                                 </div>
-                                
+
                                 <p v-if="pictureStatus == 'subiendo' && imageProgress < 100">Subiendo</p>
                                 <p v-if="pictureStatus == 'subiendo' && imageProgress == 100">Espere un momento</p>
                                 <p v-if="pictureStatus == 'listo' && imageProgress == 100">Imágen lista</p>
@@ -52,7 +52,7 @@
                             <h3>Selecciona a que tipo pertenece</h3>
 
                             <div class="d-flex">
-                                
+
                                 <div>
                                     <input type="checkbox" id="caninos" v-model="dog_category">
                                     <label for="caninos">Caninos</label>
@@ -62,7 +62,7 @@
                                     <input type="checkbox" id="felinos" v-model="cat_category">
                                     <label for="felinos">Felinos</label>
                                 </div>
-                
+
                             </div>
                         </div>
 
