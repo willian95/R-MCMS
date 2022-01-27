@@ -17,7 +17,7 @@
         @foreach($payments as $payment)
             <tr>
                 <td>
-                    {{ $loop->index + 1 }}
+                    {{ $payment->wompi_reference }}
                 </td>
                 <td>
                     {{ $payment->name }}
