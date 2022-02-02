@@ -161,7 +161,8 @@
                                         <tbody>
                                             <tr v-for="(shoppingPurchase, index) in shopping.product_purchases">
                                                 <td>@{{ shoppingPurchase.product_format.product.name }}</td>
-                                                <td>$ @{{ parseInt(shoppingPurchase.product_format.price).toString().replace(/\B(?=(\d{3})+\b)/g, ".") }}</td>
+                                                <td v-if="shoppingPurchase.product_format.discount_price <= 0">$ @{{ parseInt(shoppingPurchase.product_format.price).toString().replace(/\B(?=(\d{3})+\b)/g, ".") }}</td>
+                                                <td v-if="shoppingPurchase.product_format.discount_price > 0">$ @{{ parseInt(shoppingPurchase.product_format.discount_price).toString().replace(/\B(?=(\d{3})+\b)/g, ".") }}</td>
                                                 <td>@{{ shoppingPurchase.product_format.color.color }}</td>
                                                 <td>@{{ shoppingPurchase.product_format.size.size }}</td>
                                                 <td>@{{ shoppingPurchase.amount }}</td>
