@@ -50,6 +50,11 @@
             },
             searchProduct(){
 
+                if(this.productSearch == ""){
+                    this.products = []
+                    return
+                }
+
                 axios.post("{{ url('products/search') }}", {search: this.productSearch}).then(res => {
 
                     this.products = res.data.products
@@ -59,6 +64,11 @@
             },
 
             searchUser(){
+
+                if(this.userSearch == ""){
+                    this.users = []
+                    return
+                }
 
                 axios.post("{{ url('clients/search') }}", {search: this.userSearch}).then(res => {
 

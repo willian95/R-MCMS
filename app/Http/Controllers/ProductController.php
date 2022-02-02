@@ -69,6 +69,7 @@ class ProductController extends Controller
                 $productFormatSizeModel->slug = $slug;
                 $productFormatSizeModel->stock = $productFormatSize["stock"];
                 $productFormatSizeModel->price = $productFormatSize["price"];
+                $productFormatSizeModel->discount_price = $productFormatSize["discount_price"];
                 $productFormatSizeModel->save();
 
             }
@@ -134,9 +135,10 @@ class ProductController extends Controller
                     if(ProductFormat::where("id", $productTypeSize["id"])->count() > 0){
                         $productType = ProductFormat::find($productTypeSize["id"]);
                         $productType->product_id = $product->id;
-                        $productType->color_id = $productTypeSize["color"]["id"];;
-                        $productType->size_id = $productTypeSize["size"]["id"];;
+                        $productType->color_id = $productTypeSize["color_id"];
+                        $productType->size_id = $productTypeSize["size_id"];
                         $productType->price = $productTypeSize["price"];
+                        $productType->discount_price = $productTypeSize["discount_price"];
                         $productType->stock = $productTypeSize["stock"];
                         $productType->update();
                     }
@@ -151,11 +153,12 @@ class ProductController extends Controller
 
                     $productFormatSizeModel = new ProductFormat;
                     $productFormatSizeModel->product_id = $product->id;
-                    $productFormatSizeModel->color_id = $productFormatSize["color"]["id"];
-                    $productFormatSizeModel->size_id = $productFormatSize["size"]["id"];
+                    $productFormatSizeModel->color_id = $productFormatSize["color_id"];
+                    $productFormatSizeModel->size_id = $productFormatSize["size_id"];
                     $productFormatSizeModel->slug = $slug;
                     $productFormatSizeModel->stock = $productFormatSize["stock"];
                     $productFormatSizeModel->price = $productFormatSize["price"];
+                    $productFormatSizeModel->discount_price = $productTypeSize["discount_price"];
                     $productFormatSizeModel->save();
                 }
                 

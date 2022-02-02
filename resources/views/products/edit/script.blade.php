@@ -15,6 +15,7 @@
                 brands:[],
                 productFormatSizes:JSON.parse('{!! $product->productFormats !!}'),
                 price:"",
+                discountPrice:"",
                 format:"",
                 size:"",
                 category:"{{ $product->category_id }}",
@@ -53,6 +54,8 @@
                 pictureHoverStatus:"listo",
                 finalPictureName:"",
                 finalHoverPictureName:"",
+                productFormatModalAction:"create",
+                productFormatId:"",
 
                 secondaryPicture:"",
                 secondaryPreviewPicture:"",
@@ -147,6 +150,28 @@
                     })
 
                 }
+
+            },
+
+            editProductFormat(productFormat, index){
+                this.productFormatId = index
+                this.productFormatModalAction = "edit"
+                this.color = productFormat.color_id
+                this.size = productFormat.size_id
+                this.price = productFormat.price
+                this.discountPrice = productFormat.discount_price
+                this.stock = productFormat.stock
+
+            },
+
+            createProductFormat(){
+                this.productFormatId = ""
+                this.productFormatModalAction = "create"
+                this.color = ""
+                this.size = ""
+                this.price = ""
+                this.discountPrice = ""
+                this.stock = ""
 
             },
             
@@ -317,12 +342,13 @@
             addProductColor(){
 
                 if(this.color != null && this.color != "" && this.price != null && this.price != "" && this.stock != null && this.stock != ""){
-                    this.productFormatSizes.push({color: this.color, size: this.size, price: this.price, stock: this.stock})
+                    this.productFormatSizes.push({color: this.color, size: this.size, price: this.price, stock: this.stock, discount_price: this.discountPrice})
 
                     this.color = ""
                     this.price = ""
                     this.stock = ""
                     this.size = ""
+                    this.discountPrice = ""
                 }else{
                     swal({
                         title: "Oppss!",
@@ -333,6 +359,33 @@
                 
 
             },
+
+            updateProductColor(){
+
+                if(this.color != null && this.color != "" && this.price != null && this.price != "" && this.stock != null && this.stock != ""){
+
+                    this.productFormatSizes[this.productFormatId].color_id = this.color
+                    this.productFormatSizes[this.productFormatId].size_id = this.size
+                    this.productFormatSizes[this.productFormatId].price = this.price
+                    this.productFormatSizes[this.productFormatId].stock = this.stock
+                    this.productFormatSizes[this.productFormatId].discount_price = this.discountPrice
+
+                    this.color = ""
+                    this.price = ""
+                    this.stock = ""
+                    this.discountPrice = ""
+                    this.size = ""
+                }else{
+                    swal({
+                        title: "Oppss!",
+                        text: "Debes completar todos los campos",
+                        icon: "error"
+                    });
+                }
+
+
+            },
+
             deleteProductFormatSize(index){
 
                 this.productFormatSizes.splice(index, 1)

@@ -157,7 +157,7 @@
 
                     <div class="row">
                         <div class="col-12">
-                            <h3 class="text-center">Presentaciones <button class="btn btn-success" data-toggle="modal" data-target="#presentationModal">+</button></h3>
+                            <h3 class="text-center">Presentaciones <button class="btn btn-success" data-toggle="modal" data-target="#presentationModal" @click="createProductFormat()">+</button></h3>
                         </div>
 
                     </div>
@@ -172,6 +172,7 @@
                                         <th>Color</th>
                                         <th>Talla</th>
                                         <th>Precio</th>
+                                        <th>Precio de dto.</th>
                                         <th>Stock</th>
                                         <th>Acción</th>
                                     </tr>
@@ -182,8 +183,10 @@
                                         <td>@{{ productFormatSize.color.color }}</td>
                                         <td>@{{ productFormatSize.size.size }}</td>
                                         <td>$ @{{ number_format(productFormatSize.price, 0, ",", ".") }}</td>
+                                        <td>$ @{{ number_format(productFormatSize.discount_price, 0, ",", ".") }}</td>
                                         <td>@{{ productFormatSize.stock }}</td>
                                         <td>
+                                            <button class="btn btn-info" @click="editProductFormat(productFormatSize, index)" data-toggle="modal" data-target="#presentationModal"><i class="far fa-edit"></i></button>
                                             <button class="btn btn-danger" @click="deleteProductFormatSize(index)"><i class="far fa-trash-alt"></i></button>
                                         </td>
                                     </tr>
@@ -229,7 +232,7 @@
                                     <label for="type">Color</label>
                                     <div style="display:flex;">
                                         <select id="type" class="form-control" v-model="color">
-                                            <option :value="color" v-for="color in colors">@{{ color.color }}</option>
+                                            <option :value="color.id" v-for="color in colors">@{{ color.color }}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -240,7 +243,7 @@
                                     <label for="size">Talla</label>
                                     <div style="display:flex;">
                                         <select id="size" class="form-control" v-model="size">
-                                            <option :value="size" v-for="size in sizes">@{{ size.size }}</option>
+                                            <option :value="size.id" v-for="size in sizes">@{{ size.size }}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -251,6 +254,18 @@
                                     <label for="price">Precio</label>
                                     <div class="input-group mb-3">
                                         <input type="text" class="form-control" v-model="price" @keypress="isNumberDot($event)">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text" id="basic-addon2">$</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="price">Precio de dto.</label>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" v-model="discountPrice" @keypress="isNumberDot($event)">
                                         <div class="input-group-append">
                                             <span class="input-group-text" id="basic-addon2">$</span>
                                         </div>
@@ -273,7 +288,8 @@
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Cerrar</button>
-                        <button class="btn btn-success" @click="addProductColor()">Añadir</button>
+                        <button class="btn btn-success" @click="addProductColor()" v-if="productFormatModalAction == 'create'">Añadir</button>
+                        <button class="btn btn-success" @click="updateProductColor()" v-if="productFormatModalAction == 'edit'">Actualizar</button>
                     </div>
                 </div>
             </div>

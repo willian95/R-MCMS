@@ -58,7 +58,7 @@
                                             <div class="d-flex" v-for="product in selectedProductsDetail">
                                                 <div class="card">
                                                     <div class="card-body">
-                                                        <div class="text-dark text-hover-primary mb-1 font-size-lg">@{{ product.product.name }} - @{{ product.color.color }} - @{{ product.size.size }} - @{{ currencyFormatDE(product.price) }} COP</div>
+                                                        <div class="text-dark text-hover-primary mb-1 font-size-lg">@{{ product.product.name }} - @{{ product.color.color }} - @{{ product.size.size }} - @{{ currencyFormatDE(product.price) }} COP <span class="ml-2 text-danger" @click="addToSelectedProducts(product.id, product)">X</span></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -108,7 +108,7 @@
                                             <div class="d-flex" v-for="user in selectedUsersDetail">
                                                 <div class="card">
                                                     <div class="card-body">
-                                                        <div class="text-dark text-hover-primary mb-1 font-size-lg">@{{ user.name }} - @{{ user.email }}</div>
+                                                        <div class="text-dark text-hover-primary mb-1 font-size-lg">@{{ user.name }} - @{{ user.email }} <span class="ml-2 text-danger" @click="addToSelectedUsers(user.id, user)">X</span></div>
                                                     </div>
                                                 </div>
                                             </div>
