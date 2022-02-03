@@ -100,7 +100,7 @@ class CouponController extends Controller
             return response()->json(["success" => true, "msg" => "Cupón creado"]);
 
         }catch(\Exception $e){  
-
+            \Log::error($e);
             return response()->json(["success" => false, "msg" => "Hubo un problema", "err" => $e->getMessage()]);
 
         }
