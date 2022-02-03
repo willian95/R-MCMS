@@ -49,7 +49,7 @@ class CouponController extends Controller
 
             if($request->allUsers == true){
 
-                foreach(User::where("role_id", 2)->all() as $user){
+                foreach(User::where("role_id", 2)->get() as $user){
 
                     $data = [
                         "discount_type" => $request->discountType,
@@ -129,7 +129,7 @@ class CouponController extends Controller
 
         }else{
 
-            foreach(User::where("role_id", 2)->all() as $user){
+            foreach(User::where("role_id", 2)->get() as $user){
 
                 $couponUser = new CouponUser;
                 $couponUser->user_id = $user->id;
