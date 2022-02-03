@@ -9,6 +9,7 @@ use App\Models\CouponProductFormat;
 use App\Models\User;
 use App\Http\Requests\Coupon\CouponStoreRequest;
 use App\Mail\CouponMail;
+use App\Models\ProductFormat;
 
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\CouponsExport;
@@ -46,26 +47,55 @@ class CouponController extends Controller
             $this->addUsers($request, $coupon->id);
             $this->addProducts($request, $coupon->id);
 
-            foreach($request->users as $user){
+            if($request->allUsers == true){
 
-                $data = [
-                    "discount_type" => $request->discountType,
-                    "total_discount" => $request->totalDiscount,
-                    "discount_amount" => $request->discountAmount,
-                    "end_date" => $request->endDate,
-                    "all_users" => $request->allUsers,
-                    "all_products" => $request->allProducts,
-                    "coupon_code" => $request->couponCode,
-                    "products" => $request->products,
-                    "user_name" => $user["name"],
-                    "APP_URL" => env("FRONT_URL")
-                ];
+                foreach(User::where("role_id", 2)->all() as $user){
 
-                Mail::to($user["email"])->queue(
-                    new CouponMail($data)
-                );
+                    $data = [
+                        "discount_type" => $request->discountType,
+                        "total_discount" => $request->totalDiscount,
+                        "discount_amount" => $request->discountAmount,
+                        "end_date" => $request->endDate,
+                        "all_users" => $request->allUsers,
+                        "all_products" => $request->allProducts,
+                        "coupon_code" => $request->couponCode,
+                        "products" => $request->products,
+                        "user_name" => $user->name,
+                        "APP_URL" => env("FRONT_URL")
+                    ];
+    
+                    Mail::to($user->email)->queue(
+                        new CouponMail($data)
+                    );
+    
+                }
+
+
+            }else{
+
+                foreach($request->users as $user){
+
+                    $data = [
+                        "discount_type" => $request->discountType,
+                        "total_discount" => $request->totalDiscount,
+                        "discount_amount" => $request->discountAmount,
+                        "end_date" => $request->endDate,
+                        "all_users" => $request->allUsers,
+                        "all_products" => $request->allProducts,
+                        "coupon_code" => $request->couponCode,
+                        "products" => $request->products,
+                        "user_name" => $user["name"],
+                        "APP_URL" => env("FRONT_URL")
+                    ];
+    
+                    Mail::to($user["email"])->queue(
+                        new CouponMail($data)
+                    );
+    
+                }
 
             }
+            
 
             return response()->json(["success" => true, "msg" => "Cupón creado"]);
 
@@ -97,6 +127,17 @@ class CouponController extends Controller
 
             }
 
+        }else{
+
+            foreach(User::where("role_id", 2)->all() as $user){
+
+                $couponUser = new CouponUser;
+                $couponUser->user_id = $user->id;
+                $couponUser->coupon_id = $coupon_id;
+                $couponUser->save();
+
+            }
+
         }
 
     }
@@ -109,6 +150,17 @@ class CouponController extends Controller
 
                 $couponProduct = new CouponProductFormat;
                 $couponProduct->product_format_id = $product["id"];
+                $couponProduct->coupon_id = $coupon_id;
+                $couponProduct->save();
+
+            }
+
+        }else{
+
+            foreach(ProductFormat::all() as $product){
+
+                $couponProduct = new CouponProductFormat;
+                $couponProduct->product_format_id = $product->id;
                 $couponProduct->coupon_id = $coupon_id;
                 $couponProduct->save();
 
