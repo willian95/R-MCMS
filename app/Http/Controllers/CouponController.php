@@ -8,10 +8,12 @@ use App\Models\CouponUser;
 use App\Models\CouponProductFormat;
 use App\Models\User;
 use App\Http\Requests\Coupon\CouponStoreRequest;
+use App\Mail\CouponMail;
 
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\CouponsExport;
-use PDF;
+use Illuminate\Support\Facades\Mail;
+use Barryvdh\DomPDF\PDF;
 
 class CouponController extends Controller
 {
@@ -43,6 +45,27 @@ class CouponController extends Controller
 
             $this->addUsers($request, $coupon->id);
             $this->addProducts($request, $coupon->id);
+
+            foreach($request->users as $user){
+
+                $data = [
+                    "discount_type" => $request->discountType,
+                    "total_discount" => $request->totalDiscount,
+                    "discount_amount" => $request->discountAmount,
+                    "end_date" => $request->endDate,
+                    "all_users" => $request->allUsers,
+                    "all_products" => $request->allProducts,
+                    "coupon_code" => $request->couponCode,
+                    "products" => $request->products,
+                    "user_name" => $user["name"],
+                    "APP_URL" => env("FRONT_URL")
+                ];
+
+                Mail::to($user["email"])->queue(
+                    new CouponMail($data)
+                );
+
+            }
 
             return response()->json(["success" => true, "msg" => "Cupón creado"]);
 
