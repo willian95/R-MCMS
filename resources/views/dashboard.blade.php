@@ -116,11 +116,26 @@
 											</th>-->
                                         <th class="pl-0" style="min-width: 120px">#</th>
                                         <th style="min-width: 110px">Cliente</th>
+                                        <th style="min-width: 110px">Teléfono</th>
+                                        <th style="min-width: 110px">Status</th>
                                         <th style="min-width: 110px">
                                             <span class="text-info">Fecha</span>
                                         </th>
                                         <th style="min-width: 120px">Total</th>
                                     </tr>
+                                    @foreach(App\Models\Payment::orderBy("id", "desc")->get() as $payment)
+                                    <tr>
+                                        
+                                    <td>{{ $payment->wompi_reference }}</td>
+                                    <td>{{ $payment->name }}</td>
+                                    <td>{{ $payment->phone }}</td>
+                                    <td>{{ $payment->status }}</td>
+                                    <td>{{ $payment->created_at->format("d-m-Y") }}</td>
+                                    <td>$ {{ number_format($payment->total_products + $payment->shipping_price, 0, ",", ".") }}</td>
+
+                                    
+                                    </tr>
+                                    @endforeach
                                 </thead>
                                 <tbody>
 
@@ -143,7 +158,26 @@
 
 @push("scripts")
 
+@php
+    $actualYear = Carbon\Carbon::now()->year;
+@endphp
+
 <script>
+
+    
+    const ene = "{{ App\Models\Payment::whereYear('created_at', $actualYear)->whereMonth('created_at', 1)->sum(\DB::raw('total_products + shipping_price')) }}"
+    const feb = "{{ App\Models\Payment::whereYear('created_at', $actualYear)->whereMonth('created_at', 2)->sum(\DB::raw('total_products + shipping_price')) }}"
+    const mar = "{{ App\Models\Payment::whereYear('created_at', $actualYear)->whereMonth('created_at', 3)->sum(\DB::raw('total_products + shipping_price')) }}"
+    const abr = "{{ App\Models\Payment::whereYear('created_at', $actualYear)->whereMonth('created_at', 4)->sum(\DB::raw('total_products + shipping_price')) }}"
+    const may = "{{ App\Models\Payment::whereYear('created_at', $actualYear)->whereMonth('created_at', 5)->sum(\DB::raw('total_products + shipping_price')) }}"
+    const jun = "{{ App\Models\Payment::whereYear('created_at', $actualYear)->whereMonth('created_at', 6)->sum(\DB::raw('total_products + shipping_price')) }}"
+    const jul = "{{ App\Models\Payment::whereYear('created_at', $actualYear)->whereMonth('created_at', 7)->sum(\DB::raw('total_products + shipping_price')) }}"
+    const ago = "{{ App\Models\Payment::whereYear('created_at', $actualYear)->whereMonth('created_at', 8)->sum(\DB::raw('total_products + shipping_price')) }}"
+    const sep = "{{ App\Models\Payment::whereYear('created_at', $actualYear)->whereMonth('created_at', 9)->sum(\DB::raw('total_products + shipping_price')) }}"
+    const oct = "{{ App\Models\Payment::whereYear('created_at', $actualYear)->whereMonth('created_at', 10)->sum(\DB::raw('total_products + shipping_price')) }}"
+    const nov = "{{ App\Models\Payment::whereYear('created_at', $actualYear)->whereMonth('created_at', 11)->sum(\DB::raw('total_products + shipping_price')) }}"
+    const dec = "{{ App\Models\Payment::whereYear('created_at', $actualYear)->whereMonth('created_at', 12)->sum(\DB::raw('total_products + shipping_price')) }}"
+
     var KTWidgets = function() {
 
         var _initMixedWidget2 = function() {
@@ -159,7 +193,7 @@
             var options = {
                 series: [{
                     name: 'Net Profit',
-                    data: [30, 45, 32, 70, 40, 40, 40]
+                    data: [ene/1000, feb/1000, mar/1000, abr/1000, may/1000, jun/1000, jul/1000, ago/1000, sep/1000, oct/1000, nov/1000, dec/1000]
                 }],
                 chart: {
                     type: 'area',
@@ -201,7 +235,7 @@
                     colors: [strokeColor]
                 },
                 xaxis: {
-                    categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
+                    categories: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dec'],
                     axisBorder: {
                         show: false,
                     },
@@ -275,7 +309,7 @@
                     },
                     y: {
                         formatter: function(val) {
-                            return "$" + val + " thousands"
+                            return "$" + val*1000
                         }
                     },
                     marker: {
