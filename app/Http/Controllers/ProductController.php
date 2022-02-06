@@ -153,11 +153,11 @@ class ProductController extends Controller
 
                     $productFormatSizeModel = new ProductFormat;
                     $productFormatSizeModel->product_id = $product->id;
-                    $productFormatSizeModel->color_id = $productFormatSize["color_id"];
-                    $productFormatSizeModel->size_id = $productFormatSize["size_id"];
+                    $productFormatSizeModel->color_id = $productTypeSize["color_id"];
+                    $productFormatSizeModel->size_id = $productTypeSize["size_id"];
                     $productFormatSizeModel->slug = $slug;
-                    $productFormatSizeModel->stock = $productFormatSize["stock"];
-                    $productFormatSizeModel->price = $productFormatSize["price"];
+                    $productFormatSizeModel->stock = $productTypeSize["stock"];
+                    $productFormatSizeModel->price = $productTypeSize["price"];
                     $productFormatSizeModel->discount_price = $productTypeSize["discount_price"];
                     $productFormatSizeModel->save();
                 }
