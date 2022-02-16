@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Schema;
 class ChangeColumnCityInUsers extends Migration
 {
     /**
+     * 
      * Run the migrations.
      *
      * @return void
