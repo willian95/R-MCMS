@@ -31,6 +31,7 @@
                 imageCategoryProgress:"",
                 pictureCategoryStatus:"",
                 finalCategoryPictureName:"",
+                discountPrice:"",
 
 
                 newColor:"",
@@ -310,12 +311,13 @@
             addProductColor(){
 
                 if(this.color != null && this.color != "" && this.price != null && this.price != "" && this.stock != null && this.stock != ""){
-                    this.productFormatSizes.push({color: this.color, size: this.size, price: this.price, stock: this.stock})
+                    this.productFormatSizes.push({color: this.color, size: this.size, price: this.price, stock: this.stock, discount_price: this.discountPrice})
 
                     this.color = ""
                     this.price = ""
                     this.stock = ""
                     this.size = ""
+                    this.discountPrice = ""
                 }else{
                     swal({
                         title: "Oppss!",

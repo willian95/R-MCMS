@@ -259,6 +259,18 @@
 
                             <div class="col-md-3">
                                 <div class="form-group">
+                                    <label for="price">Precio de dto.</label>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" v-model="discountPrice" @keypress="isNumberDot($event)">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text" id="basic-addon2">$</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
                                     <label for="price">Stock</label>
                                     <div class="input-group mb-3">
                                         <input type="text" class="form-control" v-model="stock" @keypress="isNumberDot($event)">
