@@ -248,7 +248,7 @@ var app = new Vue({
 
                 var _this = this
                 var fileName = this.fileName3
-                this.pictureStatus = "subiendo";
+                this.pictureStatus3 = "subiendo";
 
                 var config = {
                     headers: { "X-Requested-With": "XMLHttpRequest" },
@@ -256,7 +256,7 @@ var app = new Vue({
                         
                         var progressPercent = Math.round((progressEvent.loaded * 100.0) / progressEvent.total);
                     
-                        _this.imageProgress2 = progressPercent
+                        _this.imageProgress3 = progressPercent
                         
                     }
                 }
