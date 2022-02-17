@@ -168,7 +168,7 @@ var app = new Vue({
 
                 var _this = this
                 var fileName = this.fileName
-                this.pictureStatus = "subiendo";
+                this.pictureStatus2 = "subiendo";
 
                 var config = {
                     headers: { "X-Requested-With": "XMLHttpRequest" },
