@@ -76,8 +76,8 @@
                                     
                                     <h3 class="text-center">Usuarios</h3>
                                     <div class="form-group form-check">
-                                        <input type="checkbox" class="form-check-input" id="exampleCheck1" v-model="allUsers">
-                                        <label class="form-check-label" for="exampleCheck1">Todos los usuarios</label>
+                                        <input type="checkbox" class="form-check-input" id="exampleCheck1User" v-model="allUsers">
+                                        <label class="form-check-label" for="exampleCheck1User">Todos los usuarios</label>
                                     </div>
                                 </div>
 

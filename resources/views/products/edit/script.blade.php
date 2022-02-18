@@ -342,7 +342,7 @@
             addProductColor(){
 
                 if(this.color != null && this.color != "" && this.price != null && this.price != "" && this.stock != null && this.stock != ""){
-                    this.productFormatSizes.push({color: this.color, size: this.size, price: this.price, stock: this.stock, discount_price: this.discountPrice})
+                    this.productFormatSizes.push({color: this.colors.find((data) => data.id == this.color), size: this.sizes.find((data) => data.id == this.size), price: this.price, stock: this.stock, discount_price: this.discountPrice})
 
                     this.color = ""
                     this.price = ""

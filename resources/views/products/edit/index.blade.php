@@ -289,7 +289,7 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Cerrar</button>
                         <button class="btn btn-success" @click="addProductColor()" v-if="productFormatModalAction == 'create'">Añadir</button>
-                        <button class="btn btn-success" @click="updateProductColor()" v-if="productFormatModalAction == 'edit'">Actualizar</button>
+                        <button class="btn btn-success" @click="updateProductColor()" v-if="productFormatModalAction == 'edit'">Actualaizar</button>
                     </div>
                 </div>
             </div>

@@ -145,7 +145,7 @@ class ProductController extends Controller
 
                 }else{
                    
-                    $slug = $product->slug."-".$productTypeSize["color"]["name"];
+                    $slug = $product->slug."-".$productTypeSize["color"]["color"];
 
                     if(ProductFormat::where("slug", $slug)->count() > 0){
                         $slug = $slug."-".uniqid();
@@ -153,8 +153,8 @@ class ProductController extends Controller
 
                     $productFormatSizeModel = new ProductFormat;
                     $productFormatSizeModel->product_id = $product->id;
-                    $productFormatSizeModel->color_id = $productTypeSize["color_id"];
-                    $productFormatSizeModel->size_id = $productTypeSize["size_id"];
+                    $productFormatSizeModel->color_id = $productTypeSize["color"]["id"];
+                    $productFormatSizeModel->size_id = $productTypeSize["size"]["id"];
                     $productFormatSizeModel->slug = $slug;
                     $productFormatSizeModel->stock = $productTypeSize["stock"];
                     $productFormatSizeModel->price = $productTypeSize["price"];

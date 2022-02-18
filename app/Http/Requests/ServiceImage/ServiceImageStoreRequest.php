@@ -24,9 +24,7 @@ class ServiceImageStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            "image1" => "required",
-            "image2" => "required",
-            "image3" => "required"
+            
         ];
     }
 }
