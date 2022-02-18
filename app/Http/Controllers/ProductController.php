@@ -104,7 +104,7 @@ class ProductController extends Controller
             }
 
             if($request->get("imageHover") != null){
-                $product->hover_image = $request->imageHover;
+                $product->image_hover = $request->imageHover;
             }
             
             $product->update();
