@@ -171,6 +171,7 @@
                                         <th>Color</th>
                                         <th>Talla</th>
                                         <th>Precio</th>
+                                        <th>Precio de dto.</th>
                                         <th>Stock</th>
                                         <th>Acción</th>
                                     </tr>
@@ -181,6 +182,7 @@
                                         <td>@{{ productFormatSize.color.color }}</td>
                                         <td>@{{ productFormatSize.size.size }}</td>
                                         <td>$ @{{ number_format(productFormatSize.price, 0, ",", ".") }}</td>
+                                        <td>$ @{{ number_format(productFormatSize.discount_price, 0, ",", ".") }}</td>
                                         <td>@{{ productFormatSize.stock }}</td>
                                         <td>
                                             <button class="btn btn-danger" @click="deleteProductFormatSize(index)"><i class="far fa-trash-alt"></i></button>

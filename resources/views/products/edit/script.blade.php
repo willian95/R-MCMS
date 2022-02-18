@@ -107,7 +107,7 @@
 
                                 swal({
                                     title: "Excelente!",
-                                    text: "Producto creado!",
+                                    text: "Producto actualizado!",
                                     icon: "success"
                                 }).then(function() {
                                     window.location.href = "{{ route('products.list') }}";
