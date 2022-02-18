@@ -97,7 +97,7 @@ td .es-button-border-2:hover {
                   <td width="540" align="center" valign="top" style="padding:0;Margin:0;"> 
                    <table cellpadding="0" cellspacing="0" width="100%" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;background-position:left bottom;" role="presentation"> 
                      <tr style="border-collapse:collapse;"> 
-                      <td align="center" style="padding:0;Margin:0;font-size:0px;"><img class="adapt-img" src="https://imgfz.com/i/oaV4pSQ.png" alt style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;object-fit: contain;" width="200" height="133"></td> 
+                      <td align="center" style="padding:0;Margin:0;font-size:0px;"><img class="adapt-img" src="{{ url('assets/img/mainLogo.png') }}" alt style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;object-fit: contain;" width="200" height="133"></td> 
                      </tr> 
 
                      <tr style="border-collapse:collapse;"> 
