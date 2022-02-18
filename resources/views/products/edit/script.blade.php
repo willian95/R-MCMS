@@ -510,14 +510,18 @@
                 ).then(res => {
                     this.workImages.forEach((data, index) => {
 
-                        console.log(data)
+                        if(data.image){
 
-                        let returnedName = res.data.originalName.toLowerCase()
+                            let returnedName = res.data.originalName.toLowerCase()
 
-                        if(data.originalName.toLowerCase() == returnedName.toLowerCase()){
-                            this.workImages[index].status = "listo";
-                            this.workImages[index].finalName = res.data.fileRoute
+                            if(data.image.toLowerCase() == returnedName.toLowerCase()){
+                                this.workImages[index].status = "listo";
+                                this.workImages[index].finalName = res.data.fileRoute
+                            }
+
                         }
+
+                        
 
                     })
 
