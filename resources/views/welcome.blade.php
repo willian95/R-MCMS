@@ -87,8 +87,10 @@ const app = new Vue({
                             window.location.href = "{{ url('/') }}"
 
 
-                        } else if (res.data.role_id == 1)
+                        } else{
                             window.location.href = res.data.url
+                        }
+                           
 
                     } else {
                         alert(res.data.msg)

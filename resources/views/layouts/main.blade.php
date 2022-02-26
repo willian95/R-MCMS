@@ -148,6 +148,7 @@ License: You must have a valid license purchased only from themeforest(the above
 							<!--begin::Menu Nav-->
 							<ul class="menu-nav">
 
+								@if(\Auth::user()->role_id == 1)
 								<li class="menu-item menu-item-submenu @if(strpos(url()->current(), 'banners') > -1) menu-item-active @endif" aria-haspopup="true" data-menu-toggle="hover">
 									<a href="javascript:;" class="menu-link menu-toggle">
 										<i class="menu-icon far fa-file-image"></i>
@@ -181,34 +182,43 @@ License: You must have a valid license purchased only from themeforest(the above
 										</ul>
 									</div>
 								</li>
+								@endif
 
+								@if(\Auth::user()->role_id == 1)
 								<li class="menu-item text-center @if(strpos(url()->current(), 'service-images') > -1) menu-item-active @endif" aria-haspopup="true">
 									<a href="{{ route('service-images.index') }}" class="menu-link text-center">
 										<i class="menu-icon far fa-file-image"></i>
 										<span class="menu-text">Imágenes de servicios</span>
 									</a>
 								</li>
+								@endif
 
+								@if(\Auth::user()->role_id == 1)
 								<li class="menu-item @if(strpos(url()->current(), 'orders') > -1) menu-item-active @endif" aria-haspopup="true">
 									<a href="{{ route('orders.index') }}" class="menu-link">
 										<i class="menu-icon far fa-money-bill-alt"></i>
 										<span class="menu-text">Ventas</span>
 									</a>
 								</li>
+								@endif
 
+								@if(\Auth::user()->role_id == 1)
 								<li class="menu-item @if(strpos(url()->current(), 'coupons') > -1) menu-item-active @endif" aria-haspopup="true">
 									<a href="{{ route('coupons.index') }}" class="menu-link">
 										<i class="menu-icon fas fa-ticket-alt"></i>
 										<span class="menu-text">Cupones</span>
 									</a>
 								</li>
+								@endif
 
+								@if(\Auth::user()->role_id == 1)
 								<li class="menu-item @if(strpos(url()->current(), 'clients') > -1) menu-item-active @endif" aria-haspopup="true">
 									<a href="{{ route('clients.index') }}" class="menu-link">
 										<i class="menu-icon fas fa-users"></i>
 										<span class="menu-text">Clientes</span>
 									</a>
 								</li>
+								@endif
 
 								<li class="menu-item menu-item-submenu @if(strpos(url()->current(), 'products') > -1) menu-item-active @endif" aria-haspopup="true" data-menu-toggle="hover">
 									<a href="javascript:;" class="menu-link menu-toggle">
@@ -326,6 +336,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									</a>
 								</li>
 
+								@if(\Auth::user()->role_id == 1)
 								<li class="menu-item menu-item-submenu @if(strpos(url()->current(), 'blogs') > -1) menu-item-active @endif" aria-haspopup="true" data-menu-toggle="hover">
 									<a href="javascript:;" class="menu-link menu-toggle">
 										<i class="menu-icon fas fa-book"></i>
@@ -359,8 +370,9 @@ License: You must have a valid license purchased only from themeforest(the above
 										</ul>
 									</div>
 								</li>
+								@endif
 
-
+								@if(\Auth::user()->role_id == 1)
 								<li class="menu-item menu-item-submenu @if(strpos(url()->current(), 'staffs') > -1) menu-item-active @endif" aria-haspopup="true" data-menu-toggle="hover">
 									<a href="javascript:;" class="menu-link menu-toggle">
 										<i class="menu-icon fas fa-user-tie"></i>
@@ -394,7 +406,7 @@ License: You must have a valid license purchased only from themeforest(the above
 										</ul>
 									</div>
 								</li>
-
+								@endif
 
 
 

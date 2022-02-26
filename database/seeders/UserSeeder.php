@@ -25,5 +25,17 @@ class UserSeeder extends Seeder
             $user->save();
 
         }
+
+        if(User::where("id", 2)->count() == 0){
+
+            $user = new User;
+            $user->id = 2;
+            $user->name = "jefe de compras";
+            $user->email  = "jefecompras@gmail.com";
+            $user->password = bcrypt("12345678");
+            $user->role_id = 3;
+            $user->save();
+
+        }
     }
 }

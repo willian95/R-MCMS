@@ -18,7 +18,7 @@ class RoleSeeder extends Seeder
 
             $role = new Role;
             $role->id = 1;
-            $role->name = "admin";
+            $role->name = "superadmin";
             $role->save();
 
         }
@@ -28,6 +28,15 @@ class RoleSeeder extends Seeder
             $role = new Role;
             $role->id = 2;
             $role->name = "user";
+            $role->save();
+
+        }
+
+        if(Role::where("id", 3)->count() == 0){
+
+            $role = new Role;
+            $role->id = 3;
+            $role->name = "admin";
             $role->save();
 
         }

@@ -15,7 +15,7 @@ class AuthController extends Controller
             $user = User::where("email", $request->email)->first();
             if($user){
 
-                if (Auth::attempt(['email' => $request->email, 'password' => $request->password], true) && $user->role_id == 1) {
+                if (Auth::attempt(['email' => $request->email, 'password' => $request->password], true) && $user->role_id != 2) {
                     $url = redirect()->intended()->getTargetUrl();
                     return response()->json(["success" => true, "msg" => "Usuario autenticado", "role_id" => Auth::user()->role_id, "url" => $url]);
                 }
