@@ -160,4 +160,11 @@
 
     @include('categories.list.script')
 
+    <style>
+        .active-link{
+            background-color: red !important;
+        }
+
+    </style>
+
 @endpush
