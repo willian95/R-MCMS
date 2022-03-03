@@ -279,6 +279,26 @@ class ProductController extends Controller
 
     }
 
+    function searchProducts(Request $request){
+
+        $products = Product::where("name", "like", "%".$request->search."%")->with(['category' => function ($q) {
+            $q->withTrashed();
+        }])->with(['brand' => function ($q) {
+            $q->withTrashed();
+        }])
+        ->with(['productFormats' => function ($q) {
+            $q->withTrashed();
+        }])->with(['productFormats.color' => function ($q) {
+            $q->withTrashed();
+        }])
+        ->with(['productFormats.size' => function ($q) {
+            $q->withTrashed();
+        }])->paginate(1);
+
+        return response()->json($products);
+
+    }
+
     function excelExport(){
         return Excel::download(new ProductsExport, 'productos.xlsx');
     }

@@ -113,6 +113,7 @@ Route::post("products/search", [ProductController::class, "search"])->name("prod
 Route::get("products/excel", [ProductController::class, "excelExport"]);
 Route::get("products/csv", [ProductController::class, "csvExport"]);
 Route::get("products/pdf", [ProductController::class, "pdfExport"]);
+Route::get("products/search-products", [ProductController::class, "searchProducts"]);
 
 Route::view("staffs/create", "staffs.create.index")->name("staffs.create")->middleware("auth");
 Route::view("staffs/list", "staffs.list.index")->name("staffs.list")->middleware("auth");

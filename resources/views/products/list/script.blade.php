@@ -11,7 +11,8 @@
                 totalPages:"",
                 linkClass:"page-link",
                 activeLinkClass:"page-link active-link bg-main",
-                showMenu:false
+                showMenu:false,
+                search:""
 
 
             }
@@ -20,7 +21,20 @@
 
             async fetch(link = "{{ route('products.fetch') }}"){
 
-                let res = await axios.get("{{ route('products.fetch') }}")
+                if(this.search != ""){
+                    link += "&search="+this.search
+                }
+
+                let res = await axios.get(link)
+                this.products = res.data.data
+                this.links = res.data.links
+                this.currentPage = res.data.current_page
+                this.totalPages = res.data.last_page
+
+            },
+            async searchProduct(){
+
+                let res = await axios.get("{{ url('products/search-products') }}"+"?search="+this.search)
                 this.products = res.data.data
                 this.links = res.data.links
                 this.currentPage = res.data.current_page
