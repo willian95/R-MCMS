@@ -293,7 +293,7 @@ class ProductController extends Controller
         }])
         ->with(['productFormats.size' => function ($q) {
             $q->withTrashed();
-        }])->paginate(1);
+        }])->paginate(20);
 
         return response()->json($products);
 
