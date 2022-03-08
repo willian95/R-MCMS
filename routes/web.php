@@ -114,6 +114,7 @@ Route::get("products/excel", [ProductController::class, "excelExport"]);
 Route::get("products/csv", [ProductController::class, "csvExport"]);
 Route::get("products/pdf", [ProductController::class, "pdfExport"]);
 Route::get("products/search-products", [ProductController::class, "searchProducts"]);
+Route::post("products/restore", [ProductController::class, "restore"])->name("products.restore");
 
 Route::view("staffs/create", "staffs.create.index")->name("staffs.create")->middleware("auth");
 Route::view("staffs/list", "staffs.list.index")->name("staffs.list")->middleware("auth");

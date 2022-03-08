@@ -139,7 +139,8 @@
                                     
                                     <td>
                                         <a class="btn btn-info" :href="'{{ url('/products/edit') }}'+'/'+product.id"><i class="far fa-edit"></i></a>
-                                        <button class="btn btn-secondary" @click="erase(product.id)"><i class="far fa-trash-alt"></i></button>
+                                        <button v-if="product.deleted_at === null" class="btn btn-secondary" @click="erase(product.id)"><i class="far fa-trash-alt"></i></button>
+                                        <button v-else class="btn btn-success" @click="restore(product.id)"><i class="fas fa-trash-restore-alt"></i></button>
                                     </td>
                                 </tr>
                             </tbody>

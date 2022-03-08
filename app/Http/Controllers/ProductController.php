@@ -94,7 +94,7 @@ class ProductController extends Controller
 
         try{
 
-            $product = Product::find($request->id);
+            $product = Product::withTrashed()->find($request->id);
             $product->name = $request->name;
             $product->category_id = $request->category;
             $product->brand_id = $request->brand;
@@ -222,7 +222,7 @@ class ProductController extends Controller
             }])
             ->with(['productFormats.size' => function ($q) {
                 $q->withTrashed();
-            }])->paginate(20);
+            }])->withTrashed()->paginate(20);
 
             return response()->json($products);
 
@@ -231,10 +231,17 @@ class ProductController extends Controller
         }
 
     }
+
+    function restore(Request $request){
+
+        $product = Product::withTrashed()->find($request->id);
+        $product->restore();
+        return response()->json(["success" => true, "msg" => "Producto restaurado"]);
+    }
     
     function edit($id){
 
-        $product = Product::with(['category' => function ($q) {
+        $product = Product::withTrashed()->with(['category' => function ($q) {
                         $q->withTrashed();
                     }])->with(['brand' => function ($q) {
                         $q->withTrashed();
@@ -281,7 +288,7 @@ class ProductController extends Controller
 
     function searchProducts(Request $request){
 
-        $products = Product::where("name", "like", "%".$request->search."%")->with(['category' => function ($q) {
+        $products = Product::withTrashed()->where("name", "like", "%".$request->search."%")->with(['category' => function ($q) {
             $q->withTrashed();
         }])->with(['brand' => function ($q) {
             $q->withTrashed();

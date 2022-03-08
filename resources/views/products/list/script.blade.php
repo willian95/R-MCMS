@@ -83,6 +83,30 @@
                 });
 
             },
+            restore(id){
+
+                axios.post("{{ route('products.restore') }}", {id: id}).then(res => {
+                    this.loading = false
+                    if(res.data.success == true){
+                        swal({
+                            title: "Genial!",
+                            text: res.data.msg,
+                            icon: "success"
+                        });
+                        this.fetch()
+                    }else{
+
+                        swal({
+                            title: "Lo sentimos!",
+                            text: res.data.msg,
+                            icon: "error"
+                        });
+
+                    }
+
+                })
+
+            },
             toggleMenu(){
 
                 if(this.showMenu == false){
