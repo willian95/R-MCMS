@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use App\Models\ProductSecondaryImage;
+use App\Models\ServiceImage;
 
 class ReviewController extends Controller
 {
@@ -18,10 +18,10 @@ class ReviewController extends Controller
             $productModel->update();
         }*/
 
-        $banners = ProductSecondaryImage::all();
+        $banners = ServiceImage::all();
 
         foreach ($banners as $product) {
-            $productModel = ProductSecondaryImage::where('id', $product->id)->first();
+            $productModel = ServiceImage::where('id', $product->id)->first();
             $productModel->image = str_replace('https://adminrmvet2.sytes.net', 'https://cms.rymveterinaria.com', $product->image);
             $productModel->update();
         }
