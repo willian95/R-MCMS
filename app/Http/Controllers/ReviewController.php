@@ -11,8 +11,10 @@ class ReviewController extends Controller
         $products = Product::all();
 
         foreach ($products as $product) {
-            echo str_replace('https://adminrmvet2.sytes.net', 'https://cms.rymveterinaria.com', $product->image);
-            echo '<br>';
+            $productModel = Product::where('id', $product->id)->first();
+            $productModel->image = str_replace('https://adminrmvet2.sytes.net', 'https://cms.rymveterinaria.com', $product->image);
+            $productModel->image_hover = str_replace('https://adminrmvet2.sytes.net', 'https://cms.rymveterinaria.com', $product->image_hover);
+            $productModel->update();
         }
     }
 }
