@@ -8,8 +8,13 @@ class ReviewController extends Controller
 {
     public function review()
     {
-        $product = Product::all();
+        $products = Product::all();
 
-        dd($product);
+        foreach ($products as $product) {
+            echo $product->image.'<br>';
+            echo $product->image_hover.'<br>';
+            echo '<br>';
+            echo '<br>';
+        }
     }
 }
