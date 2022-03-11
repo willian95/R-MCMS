@@ -11,9 +11,7 @@ class ReviewController extends Controller
         $products = Product::all();
 
         foreach ($products as $product) {
-            echo $product->image.'<br>';
-            echo $product->image_hover.'<br>';
-            echo '<br>';
+            echo str_replace('https://adminrmvet2.sytes.net', 'https://cms.rymveterinaria.com', $product->image);
             echo '<br>';
         }
     }
