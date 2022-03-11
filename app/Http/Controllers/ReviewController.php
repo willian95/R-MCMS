@@ -2,18 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Banner;
 use App\Models\Product;
 
 class ReviewController extends Controller
 {
     public function review()
     {
-        $products = Product::all();
+        /*$products = Product::all();
 
         foreach ($products as $product) {
             $productModel = Product::where('id', $product->id)->first();
             $productModel->image = str_replace('https://adminrmvet2.sytes.net', 'https://cms.rymveterinaria.com', $product->image);
             $productModel->image_hover = str_replace('https://adminrmvet2.sytes.net', 'https://cms.rymveterinaria.com', $product->image_hover);
+            $productModel->update();
+        }*/
+
+        $banners = Banner::all();
+
+        foreach ($banners as $product) {
+            $productModel = Banner::where('id', $product->id)->first();
+            $productModel->image = str_replace('https://adminrmvet2.sytes.net', 'https://cms.rymveterinaria.com', $product->image);
             $productModel->update();
         }
     }
