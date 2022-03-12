@@ -21,11 +21,11 @@ class ReviewController extends Controller
         $banners = ServiceImage::all();
 
         foreach ($banners as $product) {
-            echo $product->image.'<br>';
-
-            /*$productModel = ServiceImage::where('id', $product->id)->first();
-            $productModel->image = str_replace('https://adminrmvet2.sytes.net', 'https://cms.rymveterinaria.com', $product->image);
-            $productModel->update();*/
+            $productModel = ServiceImage::where('id', $product->id)->first();
+            $productModel->image_1 = str_replace('https://adminrmvet2.sytes.net', 'https://cms.rymveterinaria.com', $product->image_1);
+            $productModel->image_2 = str_replace('https://adminrmvet2.sytes.net', 'https://cms.rymveterinaria.com', $product->image_2);
+            $productModel->image_3 = str_replace('https://adminrmvet2.sytes.net', 'https://cms.rymveterinaria.com', $product->image_3);
+            $productModel->update();
         }
     }
 }
