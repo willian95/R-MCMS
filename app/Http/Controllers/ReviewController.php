@@ -12,6 +12,8 @@ class ReviewController extends Controller
         $brands = Brand::all();
 
         foreach ($brands as $brand) {
+            echo $brand->image.'<br>';
+
             $productModel = Brand::where('id', $brand->id)->first();
             $productModel->image = str_replace('https://adminrmvet2.sytes.net', 'https://cms.rymveterinaria.com', $brand->image);
             $productModel->update();
