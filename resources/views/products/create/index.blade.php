@@ -34,7 +34,7 @@
                                 <label for="category">Categoría</label>
                                 <div style="display:flex">
                                     <select id="category" class="form-control" v-model="category">
-                                        <option :value="category.id" v-for="category in categories">@{{ category.name }}</option>
+                                        <option :value="category.id" v-for="category in categories">@{{ category.name }} - @{{ category.dog_category ? 'caninos' : '' }} @{{ category.cat_category ? 'felinos' : '' }}</option>
                                     </select>
                                 </div>
                                 <small v-if="errors.hasOwnProperty('category')">@{{ errors['category'][0] }}</small>
