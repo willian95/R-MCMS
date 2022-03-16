@@ -19,7 +19,7 @@
 
             async fetch(link = "{{ route('staffs.fetch') }}"){
 
-                let res = await axios.get("{{ route('staffs.fetch') }}")
+                let res = await axios.get(link)
                 this.staffs = res.data.data
                 this.links = res.data.links
                 this.currentPage = res.data.current_page
