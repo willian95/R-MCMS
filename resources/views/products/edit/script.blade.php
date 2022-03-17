@@ -561,7 +561,7 @@
             this.fetchColors()
             this.fetchSizes()
             CKEDITOR.replace( 'editor1' );
-            this.productFormatSizes = JSON.parse('{!! $product->productFormats !!}')
+            this.productFormatSizes = JSON.parse(`{!! $product->productFormats !!}`)
 
         }
 
