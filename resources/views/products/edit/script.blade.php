@@ -13,7 +13,7 @@
                 colors:[],
                 sizes:[],
                 brands:[],
-                productFormatSizes:JSON.parse('{!! $product->productFormats !!}'),
+                productFormatSizes:null,
                 price:"",
                 discountPrice:"",
                 format:"",
@@ -561,6 +561,7 @@
             this.fetchColors()
             this.fetchSizes()
             CKEDITOR.replace( 'editor1' );
+            this.productFormatSizes = JSON.parse('{!! $product->productFormats !!}')
 
         }
 
