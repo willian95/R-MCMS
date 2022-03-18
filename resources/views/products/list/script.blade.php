@@ -83,6 +83,48 @@
                 });
 
             },
+            destroy(id){
+                
+                swal({
+                    title: "¿Estás seguro?",
+                    text: "Eliminarás este producto para siempre!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        this.loading = true
+                        axios.post("{{ route('products.destroy') }}", {id: id}).then(res => {
+                            this.loading = false
+                            if(res.data.success == true){
+                                swal({
+                                    title: "Genial!",
+                                    text: res.data.msg,
+                                    icon: "success"
+                                });
+                                this.fetch()
+                            }else{
+
+                                swal({
+                                    title: "Lo sentimos!",
+                                    text: res.data.msg,
+                                    icon: "error"
+                                });
+
+                            }
+
+                        }).catch(err => {
+                            this.loading = false
+                            $.each(err.response.data.errors, function(key, value){
+                                alert(value)
+                            });
+                        })
+
+                    }
+                });
+
+            },
             restore(id){
 
                 axios.post("{{ route('products.restore') }}", {id: id}).then(res => {
