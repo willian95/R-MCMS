@@ -87,6 +87,18 @@
                 <!--end::Header-->
                 <!--begin::Body-->
                 <div class="card-body">
+
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label for="search">Búsqueda</label>
+                            <div class="d-flex">
+                                <input type="text" class="form-control" v-model="search">
+                                <button class="btn btn-success" @click="searchBrand()">Buscar</button>
+                            </div>
+                        
+                        </div>
+                    </div>
+
                     <!--begin: Datatable-->
                     <div class="datatable datatable-bordered datatable-head-custom datatable-default datatable-primary datatable-loaded" style="">
                         <table class="table">

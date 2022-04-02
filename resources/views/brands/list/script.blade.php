@@ -11,6 +11,7 @@
                 totalPages:"",
                 linkClass:"page-link",
                 activeLinkClass:"page-link active-link bg-main",
+                search:"",
                 showMenu:false
 
             }
@@ -19,7 +20,7 @@
 
             async fetch(link = "{{ route('brands.fetch') }}"){
 
-                let res = await axios.get("{{ route('brands.fetch') }}")
+                let res = await axios.get(link)
                 this.brands = res.data.data
                 this.links = res.data.links
                 this.currentPage = res.data.current_page
@@ -78,7 +79,16 @@
                     this.showMenu = false
                 }
 
-            }
+            },
+            async searchBrand(){
+
+                let res = await axios.get("{{ url('brands/search-brands') }}"+"?search="+this.search)
+                this.brands = res.data.data
+                this.links = res.data.links
+                this.currentPage = res.data.current_page
+                this.totalPages = res.data.last_page
+
+            },
 
 
         },

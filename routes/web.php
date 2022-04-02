@@ -94,6 +94,7 @@ Route::get('brands/edit/{id}', [BrandController::class, 'edit']);
 Route::get('brands/excel', [BrandController::class, 'excelExport']);
 Route::get('brands/csv', [BrandController::class, 'csvExport']);
 Route::get('brands/pdf', [BrandController::class, 'pdfExport']);
+Route::get('brands/search-brands', [BrandController::class, 'searchBrands']);
 
 Route::view('banners/create', 'banners.create.index')->name('banners.create')->middleware('auth');
 Route::view('banners/list', 'banners.list.index')->name('banners.list')->middleware('auth');

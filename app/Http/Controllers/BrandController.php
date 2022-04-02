@@ -26,8 +26,7 @@ class BrandController extends Controller
 
         }catch(\Exception $e){
 
-            //todeleteinproduction
-            return response()->json(["success" => false, "msg" => "Hubo un problema", "err" => $e->getMessage(), "ln" => $e->getLine()]);
+            return response()->json(["success" => false, "msg" => "Hubo un problema"]);
 
         }
 
@@ -50,8 +49,7 @@ class BrandController extends Controller
 
         }catch(\Exception $e){
 
-            //todeleteinproduction
-            return response()->json(["success" => false, "msg" => "Hubo un problema", "err" => $e->getMessage(), "ln" => $e->getLine()]);
+            return response()->json(["success" => false, "msg" => "Hubo un problema"]);
 
         }
 
@@ -73,7 +71,7 @@ class BrandController extends Controller
 
     function fetch(Request $request){
 
-        $brands = Brand::paginate(20);
+        $brands = Brand::paginate(1);
         return response()->json($brands);
     }
 
@@ -107,4 +105,12 @@ class BrandController extends Controller
         $pdf = PDF::loadView('brands.exports.pdf');
         return $pdf->stream();
     }
+
+    public function searchBrands(Request $request)
+    {
+        $brands = Brand::where('name', 'like', '%'.$request->search.'%')->paginate(1);
+
+        return response()->json($brands);
+    }
+
 }
