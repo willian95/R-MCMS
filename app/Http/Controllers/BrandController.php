@@ -69,9 +69,9 @@ class BrandController extends Controller
         }
     }
 
-    function fetch(Request $request){
+    function fetch(){
 
-        $brands = Brand::paginate(1);
+        $brands = Brand::orderBy("name", "ASC")->paginate(10);
         return response()->json($brands);
     }
 

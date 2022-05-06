@@ -89,7 +89,7 @@
                         <div class="form-group">
                             <label for="search">Búsqueda</label>
                             <div class="d-flex">
-                                <input type="text" class="form-control" v-model="search">
+                                <input type="text" class="form-control" v-model="search" @keyup.enter="searchProduct()">
                                 <button class="btn btn-success" @click="searchProduct()">Buscar</button>
                             </div>
                         
@@ -128,7 +128,7 @@
                                         @{{ product.name }}
                                     </td>
                                     <td class="datatable-cell">
-                                        <img :src="product.image" alt="" style="width: 250px;">
+                                        <img :src="product.image" alt="" style="width: 250px; height: 250px; object-fit: contain;">
                                     </td>
                                     <td class="datatable-cell">
                                        @{{ product.category.name }}

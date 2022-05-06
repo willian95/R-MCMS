@@ -92,7 +92,7 @@
                         <div class="form-group">
                             <label for="search">Búsqueda</label>
                             <div class="d-flex">
-                                <input type="text" class="form-control" v-model="search">
+                                <input type="text" class="form-control" v-model="search" @keyup.enter="searchBrand()">
                                 <button class="btn btn-success" @click="searchBrand()">Buscar</button>
                             </div>
                         
@@ -100,7 +100,7 @@
                     </div>
 
                     <!--begin: Datatable-->
-                    <div class="datatable datatable-bordered datatable-head-custom datatable-default datatable-primary datatable-loaded" style="">
+                    <div class="datatable datatable-bordered datatable-head-custom datatable-default datatable-primary datatable-loaded">
                         <table class="table">
                             <thead>
                                 <tr >
@@ -123,7 +123,7 @@
                                         @{{ brand.name }}
                                     </td>
                                     <td class="datatable-cell">
-                                        <img :src="brand.image" alt="" style="width: 250px;">
+                                        <img :src="brand.image" alt="" style="width: 250px; height: 250px; object-fit: contain;">
                                     </td>
                                     
                                     <td>

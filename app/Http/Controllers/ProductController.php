@@ -200,7 +200,7 @@ class ProductController extends Controller
             }])
             ->with(['productFormats.size' => function ($q) {
                 $q->withTrashed();
-            }])->withTrashed()->paginate(20);
+            }])->withTrashed()->orderBy("name", "ASC")->paginate(20);
 
             return response()->json($products);
         } catch (\Exception $e) {
